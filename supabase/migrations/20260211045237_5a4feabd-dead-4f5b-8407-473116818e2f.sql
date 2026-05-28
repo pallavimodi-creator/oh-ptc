@@ -1,0 +1,1 @@
+ALTER TABLE public.quiz_attempts ADD COLUMN onboarding_rating smallint NULL CHECK (onboarding_rating >= 1 AND onboarding_rating <= 5);

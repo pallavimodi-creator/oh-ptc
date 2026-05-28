@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Openhouse brand bible — colours and typography mirror openhouse.study */
+
+@layer base {
+  :root {
+    /* Cream background (#F9F2E8), charcoal ink (#2C2B28) */
+    --background: 36 64% 94%;
+    --foreground: 40 4% 16%;
+
+    /* Card surfaces — white on cream */
+    --card: 0 0% 100%;
+    --card-foreground: 40 4% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 40 4% 16%;
+
+    /* Brand orange #F2643D */
+    --primary: 11 87% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Subtle cream variant */
+    --secondary: 36 50% 90%;
+    --secondary-foreground: 40 4% 16%;
+
+    --muted: 36 50% 90%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 36 50% 90%;
+    --accent-foreground: 40 4% 16%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 4% 16% / 0.1;
+    --border: 40 4% 87%;
+    --input: 40 4% 87%;
+    --ring: 11 87% 59%;
+
+    --radius: 0.75rem;
+
+    /* Session category palette — from the brand bible */
+    --session-art: 47 90% 54%;       /* #F3C520 — golden yellow */
+    --session-music: 204 64% 69%;    /* #7DBBE2 — sky blue */
+    --session-movement: 355 65% 80%; /* #EDAAB0 — pink */
+    --session-sensory: 104 30% 69%;  /* #A3C996 — sage green */
+    --session-special: 208 36% 54%;  /* #5B8FB9 — steel blue */
+
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 40 4% 16%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 40 4% 16%;
+    --sidebar-primary: 11 87% 59%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 36 50% 90%;
+    --sidebar-accent-foreground: 40 4% 16%;
+    --sidebar-border: 40 4% 87%;
+    --sidebar-ring: 11 87% 59%;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg text-ink;
+    font-family: 'Nunito', 'Avenir Next Rounded Std', 'SF Pro Rounded', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Lowercase titles per brand — matches the openhouse.study voice */
+  h1, h2, h3, h4 {
+    text-transform: lowercase;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .session-chip-art {
+    background-color: hsl(var(--session-art));
+    color: hsl(40 4% 16%);
+  }
+  .session-chip-music {
+    background-color: hsl(var(--session-music));
+    color: hsl(40 4% 16%);
+  }
+  .session-chip-movement {
+    background-color: hsl(var(--session-movement));
+    color: hsl(40 4% 16%);
+  }
+  .session-chip-sensory {
+    background-color: hsl(var(--session-sensory));
+    color: hsl(40 4% 16%);
+  }
+  .session-chip-special {
+    background-color: hsl(var(--session-special));
+    color: #fff;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
+  }
+}

@@ -1,0 +1,4 @@
+project_id = "rvcnjrqzvbwmrespmycs"
+
+[functions.upload-session-image]
+verify_jwt = false
