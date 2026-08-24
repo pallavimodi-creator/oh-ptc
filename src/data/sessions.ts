@@ -218,6 +218,13 @@ export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp21', date: '2026-09-30', name: 'Barnyard Beats', type: 'music' },
 ];
 
+// ─────────────────────────────────────────────────────────────────────────
+// Adding a month? Add its *_SESSIONS array, register it in BOTH maps below,
+// and append it to BASELINE_MONTHS in sessions.integrity.test.ts.
+// That test runs as a `prebuild` gate — if a month or its sessions ever go
+// missing, the build fails and the bad version cannot deploy. Never delete a
+// month here (past months stay for reference/history).
+// ─────────────────────────────────────────────────────────────────────────
 export const ALL_SESSIONS: Record<string, Session[]> = {
   'February 2026': FEBRUARY_2026_SESSIONS,
   'March 2026': MARCH_2026_SESSIONS,
