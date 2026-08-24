@@ -167,6 +167,30 @@ export const JULY_2026_SESSIONS: Session[] = [
   { id: 'jl22', date: '2026-07-30', name: 'Smell & Sniff', type: 'sensory' },
 ];
 
+export const AUGUST_2026_SESSIONS: Session[] = [
+  { id: 'au1', date: '2026-08-01', name: 'Butterfly Band', type: 'music' },
+  { id: 'au2', date: '2026-08-03', name: 'Little Garden', type: 'sensory' },
+  { id: 'au3', date: '2026-08-04', name: 'Little Lamb Tunes', type: 'music' },
+  { id: 'au4', date: '2026-08-05', name: 'Busy City Runners', type: 'movement' },
+  { id: 'au5', date: '2026-08-06', name: 'Frost & Shine', type: 'art' },
+  { id: 'au6', date: '2026-08-08', name: 'Independence Day Playdate', type: 'special' },
+  { id: 'au7', date: '2026-08-10', name: 'Barnyard Beats', type: 'music' },
+  { id: 'au8', date: '2026-08-11', name: 'Gumboot Stomp', type: 'movement' },
+  { id: 'au9', date: '2026-08-12', name: 'Cupcake Dots', type: 'art' },
+  { id: 'au10', date: '2026-08-13', name: 'Sand Dune Scoop', type: 'sensory' },
+  { id: 'au11', date: '2026-08-17', name: 'Traffic Light Movers', type: 'movement' },
+  { id: 'au12', date: '2026-08-18', name: 'Mix It Up', type: 'art' },
+  { id: 'au13', date: '2026-08-19', name: 'Petal Bloom Basket', type: 'sensory' },
+  { id: 'au14', date: '2026-08-20', name: 'Tick Tock Mouse', type: 'music' },
+  { id: 'au15', date: '2026-08-22', name: 'The Very Messy Dino', type: 'art' },
+  { id: 'au16', date: '2026-08-24', name: 'Nature Press', type: 'art' },
+  { id: 'au17', date: '2026-08-25', name: 'Soft Things Basket', type: 'sensory' },
+  { id: 'au18', date: '2026-08-26', name: 'Ocean Beats', type: 'music' },
+  { id: 'au19', date: '2026-08-27', name: 'Busy Builders', type: 'movement' },
+  { id: 'au20', date: '2026-08-29', name: 'Welcome to the Circus', type: 'movement' },
+  { id: 'au21', date: '2026-08-31', name: 'Mixing Bowls', type: 'sensory' },
+];
+
 // Fridays and Sundays are holidays (absent). Mon 14 Sep is also a holiday
 // (day after Ganesh Chaturthi). Alternate Saturdays are BIG playdates:
 // Ganesh Chaturthi (12th) and Taco Tuesday (26th).
@@ -201,6 +225,7 @@ export const ALL_SESSIONS: Record<string, Session[]> = {
   'May 2026': MAY_2026_SESSIONS,
   'June 2026': JUNE_2026_SESSIONS,
   'July 2026': JULY_2026_SESSIONS,
+  'August 2026': AUGUST_2026_SESSIONS,
   'September 2026': SEPTEMBER_2026_SESSIONS,
 };
 
@@ -211,15 +236,17 @@ export const AVAILABLE_MONTHS = [
   'May 2026',
   'June 2026',
   'July 2026',
+  'August 2026',
   'September 2026',
 ];
 
 export interface SessionActivity {
   name: string;
   description: string;
-  setup: string[];
-  whatToSay: string[];
-  goal: string;
+  // Optional — some plans give only a description + goal.
+  setup?: string[];
+  whatToSay?: string[];
+  goal?: string;
   // Optional differentiation, shown when present.
   ifNotReady?: string;
   ifReadyForMore?: string;
@@ -229,7 +256,8 @@ export interface SessionPlan {
   overview: string;
   // Optional session-level "big goals" line, shown under the overview.
   bigGoals?: string;
-  freePlay: {
+  // Optional — some plans jump straight to activities.
+  freePlay?: {
     purpose: string;
     setup: string[];
     teacherModels: string;
@@ -240,6 +268,568 @@ export interface SessionPlan {
 }
 
 export const SESSION_PLANS: Record<string, SessionPlan> = {
+  // --- August plans ported from ~/oh-ptc (source of truth for these) ---
+  'Butterfly Band': {
+    overview: 'A musical bug world where children make sounds, shake and flutter — following a little caterpillar as it munches, curls into a cocoon, and floats away as a butterfly, all through hands-on music and play.',
+    activities: [
+      {
+        name: 'Munching Beats',
+        description: 'Tap wooden sticks to make the caterpillar\'s "crunch, crunch" sounds, trying fast and slow beats together.',
+        whatToSay: ['Tap.', 'Crunch, crunch.', 'Fast.', 'Slow.'],
+        goal: 'Make a sound and hear what happens, exploring fast and slow beats'
+      },
+      {
+        name: 'Feed the Caterpillar',
+        description: 'Listen to the story and join in, feeding little fruit props to a big caterpillar puppet and making loud munching sounds.',
+        whatToSay: ['Feed.', 'Munch!', 'More.'],
+        goal: 'Join in a story and copy everyday sounds'
+      },
+      {
+        name: 'Make a Shaker',
+        description: 'Fill a little tube with dry beans to make your own shaker, then shake it together for gentle, sleepy sounds.',
+        whatToSay: ['Fill.', 'Shake.', 'Soft.', 'Sleepy.'],
+        goal: 'Make your own instrument and explore soft, quiet sounds'
+      },
+      {
+        name: 'The Butterfly Dance',
+        description: 'Hide under soft silks while the music is slow and quiet, then throw them up to "fly" like butterflies when the happy music starts.',
+        whatToSay: ['Hide.', 'Fly!', 'Slow.', 'Happy.'],
+        goal: 'Move with music and simple cues (slow/fast, hide/fly)'
+      }
+    ],
+    materials: ['Wooden rhythm sticks', 'A large caterpillar puppet', 'Little fruit props', 'Small tubes and dry beans (to make shakers)', 'Soft silks or light scarves', 'Speaker']
+  },
+  'Little Garden': {
+    overview: 'A calm nature-sensory garden — children explore leaves and flowers through touch, sound, air, and pressing. Soft vs crunchy, dry vs fresh, crunching, drifting, and simple patterns — slow pace, minimal words, lots of noticing.',
+    activities: [
+      {
+        name: 'Paper-Flower Stringing',
+        description: 'Pick coloured paper petals and string them gently onto yarn to explore threading, coordination and the feeling of building something delicate by hand.',
+        whatToSay: ['Pick.', 'Thread.', 'On it goes.'],
+        goal: 'Develop threading and hand-eye coordination'
+      },
+      {
+        name: 'Flower Pounding for Colours',
+        description: 'Pound soft petals on paper using child-safe hammers, watching natural colours emerge and noticing how each flower leaves a different mark.',
+        whatToSay: ['Pound.', 'Look — colour!', 'Again.'],
+        goal: 'Explore cause and effect and natural colour'
+      },
+      {
+        name: 'Leaf & Flower Impressions',
+        description: 'Press leaves and flowers onto clay or paper to create textured impressions, feeling the ridges, veins and patterns nature hides inside each piece.',
+        whatToSay: ['Press.', 'Feel.', 'Lines.'],
+        goal: 'Notice natural textures and make simple prints'
+      },
+      {
+        name: 'Build-Your-Own Nature Blooms',
+        description: 'Use beads, twigs, stones and petals to assemble your own imaginative "flowers," exploring shapes, balance and the joy of open-ended creation.',
+        whatToSay: ['Build.', 'Your flower.', 'More.'],
+        goal: 'Explore shapes and balance through open-ended making'
+      }
+    ],
+    materials: ['Coloured paper petals', 'Yarn / laces (for stringing)', 'Soft fresh petals', 'Child-safe wooden hammers', 'Paper and soft clay', 'Leaves and flowers (for pressing)', 'Beads, twigs, stones and petals (loose parts)', 'Shallow trays and bowls']
+  },
+  'Little Lamb Tunes': {
+    overview: 'A soft lamb story told through songs and sound play — children sing "Mary Had a Little Lamb" and "Baa Baa Black Sheep," move with lamb puppets, explore soft vs loud shaker sounds, and do a simple "pull the wool" sheep game.',
+    activities: [
+      {
+        name: 'Wooly Lamb Table',
+        description: 'A tub of soft cotton "wool" to pull, pinch, scrunch and gather while we hum "Mary Had a Little Lamb" and repeat "baa, baa."',
+        whatToSay: ['Soft.', 'Pull.', 'Baa, baa.'],
+        goal: 'Explore soft textures and join in familiar songs'
+      },
+      {
+        name: 'Lamb Puppet Circle',
+        description: 'Paper-cup lamb puppets with cotton wool. Children make their lambs walk, hop, or tap around the circle as we sing "Mary Had a Little Lamb."',
+        whatToSay: ['Walk.', 'Hop.', 'Tap.', 'Baa!'],
+        goal: 'Sing-and-act familiar songs and rhymes with a puppet'
+      },
+      {
+        name: 'Soft vs Loud Shaker Game',
+        description: 'Shake an egg shaker inside a sock (soft sound) and outside the sock (loud sound). Children listen, copy, and freeze on stop.',
+        whatToSay: ['Soft.', 'Loud.', 'Shake.', 'Stop!'],
+        goal: 'Notice soft vs loud sounds and respond to a stop cue'
+      },
+      {
+        name: 'Pull the Wool Sheep',
+        description: 'Cotton "wool" stuck lightly on a sheep board. Children pull it off and collect it in a bowl while we sing "Baa Baa Black Sheep."',
+        whatToSay: ['Pull.', 'Wool.', 'In the bowl.'],
+        goal: 'Build pincer grasp and hand strength while singing'
+      }
+    ],
+    materials: ['Soft cotton "wool" (cotton balls / batting)', 'A tub and a collecting bowl', 'Paper-cup lamb puppets with cotton wool', 'Egg shakers', 'Socks (to muffle the shakers)', 'A sheep board with cotton wool stuck on lightly', 'Speaker']
+  },
+  'Frost & Shine': {
+    overview: 'An art playdate exploring frost, transformation, and shine. Children and parents discover icy textures, sparkling reveals, and shimmering reflections together through magic snow dough, taste-safe marbling, big-tool reveal painting, and fork-print frost bursts. A handheld "frost wand" threads through the session as a magical transition cue.',
+    freePlay: {
+      purpose: 'To spark curiosity through cool, reflective, softly glinting materials — inviting touch before structured activities begin.',
+      setup: [
+        'Set up a central surface with: soft cotton cloth squares, unbreakable mirror squares or foil paper scattered flat, a shallow bowl of fake snow / cotton snow bits',
+        'The frost wand displayed nearby for children to notice',
+        'Materials spread out neatly so children can see everything and choose what draws them in'
+      ],
+      teacherModels: 'The teacher touches a mirror square and tilts it to catch the light, then pauses. The teacher waves the frost wand once, letting the bell jingle, and pauses. Parents first watch the teacher, then copy the same action once, and then pause to let the child try.',
+      whatToSay: ['Look.', 'Shine.', 'Soft.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Magic Snow Dough Reveal',
+        description: 'Part 1 — pour and squish: Parent pours a little water slowly into the cornstarch while the child squishes it with their hands, watching the powder transform into dough. Part 2 — dig together: Parent and child dig through the dough together, hand over hand, searching for hidden glitter stars — when the child finds one, they hand it to the parent to admire before tucking it back in. Teacher waves the frost wand to signal "time to reveal!"',
+        setup: ['One shallow tray per pair, with a mound of cornstarch inside', 'Small jug of water', 'A few foil stars or a pinch of glitter mixed into the dough in advance'],
+        whatToSay: ['Pour.', 'Squish.', 'Find!', 'Show me!', 'Again.'],
+        goal: 'Discover cause and effect through hands-on play, and build parent-child turn-taking'
+      },
+      {
+        name: 'Squishy Frost Marbling Bag',
+        description: 'Part 1 — child squish: Child presses and squishes a sealed bag of taste-safe blue-tinted aloe gel alone, watching the colour swirl. Part 2 — four-hand marbling: Parent places their hands over the child\'s on the bag, squishing together while naming what shapes appear ("a cloud!" "a wave!").',
+        setup: ['Heavy-duty zip bags pre-filled with clear taste-safe aloe gel and a few drops of blue watercolour', 'Bags sealed securely, checked for leaks, and taped flat to the table', 'One bag per child'],
+        whatToSay: ['Push.', 'Squish.', 'Swirl.', 'What do you see?', 'Look!'],
+        goal: 'Explore sensory textures through hands-on play, and build shared observation and language'
+      },
+      {
+        name: 'Frost Peek-a-Boo Reveal',
+        description: 'Part 1 — solo scrape: Child drags a wide chunky scraper through white paint over blue paper, revealing patterns underneath. Part 2 — shared reveal: Parent and child each hold one end of a second, larger scraper together and pull it across a bigger shared sheet, then lift it up together to reveal their joint artwork. Teacher jingles the frost wand at the big reveal moment.',
+        setup: ['One blue paper per child, covered with a thick, even layer of white puffy paint', 'One larger shared blue paper for the pair', 'Wide chunky scrapers or thick combs (one extra-long one for sharing)', 'A clear workspace, aprons on'],
+        whatToSay: ['Drag.', 'Look.', 'Blue!', 'Together!', 'Again.'],
+        goal: 'Try simple art tools & create lines, dots, and patterns, while building shared creative moments'
+      },
+      {
+        name: 'Fork Frost Burst Printing',
+        description: 'Part 1 — solo print: Child dips a fork into shimmery paint and presses it onto their own mirror square. Part 2 — matching prints: Parent makes their own fork print right beside the child\'s on a shared mirror square, then the two compare their "frost bursts" side by side, holding the mirror up to the light together.',
+        setup: ['Small unbreakable acrylic mirror squares (or foil paper) taped flat — one per child, one shared per pair', 'Shallow trays of iridescent white paint', 'One regular dinner fork per person — check tines are blunt beforehand, adult-supervised'],
+        whatToSay: ['Dip.', 'Press.', 'Shine.', 'Look together!'],
+        goal: 'Spot colours and shine through hands-on play, and build a shared moment of admiring finished work'
+      }
+    ],
+    materials: ['Small unbreakable acrylic mirror squares or foil paper', 'Soft cotton cloth squares (muslin / flannel / old bedsheet)', 'Fake snow / cotton snow bits', 'Cornstarch', 'Water (in a small jug for slow pouring)', 'Silver glitter or small foil stars (hidden inside dough)', 'Trays (one per child, one shared per pair)', 'Clear taste-safe aloe gel', 'Blue liquid watercolour (few drops)', 'Heavy-duty zip bags', 'Thick paper / cardstock, blue construction paper', 'White puffy paint or thick white washable paint', 'Wide chunky scrapers or thick combs (toddler-grip size)', 'Regular dinner forks (child-safe, blunt-tined)', 'Iridescent white paint (washable, non-toxic)', 'Frost wand (a chunky dowel wrapped in silver ribbon with translucent streamers and a small jingle bell taped at the tip — handmade in advance)']
+  },
+  'Independence Day Playdate': {
+    overview: 'Tiranga Trail — an Indian Independence Day celebration (1 hour, ages 1–3). A tricolour welcome, a "Happy Birthday, India!" flag-waving story, three hands-on traditions (block printing, bandhani tie-dye, a tricolour snack), and a joyful dance tour of India to finish.',
+    activities: [
+      {
+        name: 'Welcome & Free Play (5 min)',
+        description: 'Set out the activities. Greet each child by name and let families settle in and explore.',
+        setup: ['Keep a tricolour sensory tray out as a calm settling option — soft non-toxic cloud dough (or coloured cooked pasta) in saffron, white and green, with scoops and cups for early arrivals to ease into.'],
+        whatToSay: ['Welcome!', 'Come and see.']
+      },
+      {
+        name: 'Opening Circle (3 min)',
+        description: 'Gather everyone in a circle. Sing your usual hello / gathering song while the children wave small flags, then lead into the story.',
+        whatToSay: ['Hello!', 'Wave your flag.']
+      },
+      {
+        name: 'Storytime — Happy Birthday, India! (5 min)',
+        description: 'Narrate slowly, pausing on each refrain so the children can wave their flags and join in. Do the actions in brackets together — the refrain is a placeholder for you to make your own. Story beats: it is India\'s birthday, so let\'s get the party ready. Blow up the balloons (big breath in… and blooooow). Decorate with lotus flowers, India\'s special flower (curl your hands up tight, then slowly let the petals open). The guests arrive, each waving a flag — "Wave, wave, wave your flag — happy birthday, India!" Knock knock: the peacock in blue and green opens his tail and dances (fan your arms wide and sway). The tiger arrives, soft and strong, with quiet paws and a gentle roar (tiptoe your hands, little roar). The elephant stomps in, swinging her trunk (swing one arm like a trunk). Everyone is here — time to eat sweet golden mango and warm pumpkin, and everybody shares. Sing a national song together and sway side to side. Light the candles (hold up your fingers), big breath, and blow them out (whoosh). "Happy birthday, dear India!" (clap along). The flags wave — saffron, white and green. Hooray! Then dance and celebrate.',
+        whatToSay: ['Wave your flag!', 'Happy birthday, India!', 'Blow!', 'Hooray!']
+      },
+      {
+        name: 'Block Printing (Chhapa) (10 min)',
+        description: 'The traditional Indian craft of stamping patterns onto cloth. Children press a block onto the paint pad, then onto their paper, and repeat to build a printed pattern. They can add prints to the shared cloth banner too. Differentiation — Standard: repeat-print a row. If not yet ready: one press, hand-over-hand. If ready for more: alternate two colours, name the motifs, and add a print to the class banner.',
+        setup: ['Wooden hand-carved printing blocks (easy for little hands to grip)', 'Non-toxic paint in saffron, white and green', 'Paper, plus one long plain cloth strip for a shared banner', 'Spread the paint thinly on flat sponge pads in shallow trays — children press the block onto the pad rather than dipping, for cleaner prints and less mess'],
+        whatToSay: ['Press.', 'Stamp.', 'Again.'],
+        goal: 'Create patterns with simple tools, and share a class banner'
+      },
+      {
+        name: 'Bandhani Tie-Dye (10 min)',
+        description: 'India\'s traditional tie-and-dye — with a magic "reveal" and a keepsake to take home. Children dip or drip the colours onto a scrunched, banded towel; an adult helps untie and unfold it to reveal the pattern, then hang it to dry. Non-toxic paint only, aprons, close supervision. Differentiation — Standard: dab several colours. If not yet ready: dip one corner. If ready for more: name the colours and help untie for the reveal.',
+        setup: ['Small white cotton towels (one per child, to keep)', 'Rubber bands (adults tie — scrunch and band each towel beforehand)', 'Non-toxic paint thinned with water into saffron, white and green dip-colours in shallow bowls', 'Pipettes or spoons'],
+        whatToSay: ['Dip.', 'Drip.', 'Reveal!'],
+        goal: 'Explore colour and a surprise reveal, with a keepsake to take home'
+      },
+      {
+        name: '3-Ingredient Tricolour Snack (9 min)',
+        description: 'Simple, cheap, no cooking. Children add the three ingredients into a bowl in colour bands, then toss and mix gently into a little tricolour "bhel" and eat together. Sweet swap (still 3): mashed banana, mango, and a little mashed green apple. Keep everything soft and finely grated, portions small, and supervise closely with the puffed rice. Differentiation — Standard: layer all three, then mix. If not yet ready: one spoonful, hand-over-hand. If ready for more: name and count the three colours.',
+        setup: ['Grated carrot (saffron)', 'Puffed rice (white)', 'Finely grated or chopped cucumber (green)', 'Small bowls and spoons'],
+        whatToSay: ['Saffron.', 'White.', 'Green.', 'Mix and eat!'],
+        goal: 'Notice the three colours and share a snack together'
+      },
+      {
+        name: 'Closing Circle (4 min)',
+        description: 'Gather back in the circle. Play a celebratory flag song and have everyone wave their flags big on the chorus, then recap the day in a sentence or two — the blocks we printed, the towels we dyed, the snack we made.',
+        whatToSay: ['Wave big!', 'What did we make?']
+      },
+      {
+        name: 'Finale — A Dance Tour of India (14 min)',
+        description: 'Simple moves from a few regional dances, set to lively music. Bhangra (Punjab) — bounce, arms up, "screw the bulb" hands, shoulder shrugs. Garba (Gujarat) — clap-and-turn in a circle. Classical stamp (Bharatanatyam) — stamp feet and open the hands like a flower, for a calm finish. End by waving the flags together. Differentiation — Standard: follow the moves. If not yet ready: bounce and clap in a parent\'s lap. If ready for more: lead a regional move for the group.',
+        whatToSay: ['Bounce!', 'Clap and turn.', 'Stamp.', 'Wave the flags!'],
+        goal: 'Move to music with simple cues, and celebrate together'
+      }
+    ],
+    materials: ['Small flags (one per child)', 'Tricolour sensory tray — cloud dough or coloured pasta in saffron, white and green, with scoops and cups', 'Wooden hand-carved printing blocks', 'Non-toxic paint in saffron, white and green', 'Sponge pads and shallow trays', 'Paper + one long plain cloth banner strip', 'Small white cotton towels (one per child)', 'Rubber bands, pipettes or spoons', 'Grated carrot, puffed rice, finely grated cucumber (tricolour snack) — sweet swap: banana, mango, green apple', 'Small bowls and spoons', 'Aprons', 'Speaker for the story songs and dance finale']
+  },
+  'Barnyard Beats': {
+    overview: 'A lively music and storytelling playdate exploring farmyard sounds, songs, and rhythms together. Children sing the farm awake, join in a told story about the animals rising with the sun, and use a handmade moo tube, corn kernel shakers, coconut-shell hooves, and a soft cowbell to bring the barn to life.',
+    freePlay: {
+      purpose: 'To gently invite children into music and storytelling through farm animal visuals, sound-makers, and soft tactile barnyard textures before structured activities begin.',
+      setup: [
+        'Farm animal pictures and a low barn visual displayed at child eye level',
+        'Soft floor mats arranged in a circle',
+        'A small basket with rattles, bells, egg shakers, and corn kernel shakers',
+        'One moo tube and the soft cowbell set out for children to notice',
+        'A shallow tray of straw / raffia off to one side',
+        '"Good Morning, Farm" playing softly in the background, so the tune is familiar before the teacher sings it live in Activity 1'
+      ],
+      teacherModels: 'The teacher pulls the moo tube\'s string once, letting it "moo," and pauses. The teacher rings the soft cowbell once and pauses. Parents watch first, copy once, then pause and allow the child to respond.',
+      whatToSay: ['Moo.', 'Bell.', 'Shake.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Good Morning, Farm (Sing and Match)',
+        description: 'Part 1 — sing and point: The teacher sings "Good Morning, Farm" unaccompanied, seated in the circle. For each verse, the teacher sings the greeting and the question, then pauses and points to the animal\'s picture — children fill the gap with the sound. Parents sing the greeting lines fully so children hear the tune from the person beside them, and leave the sound gap open for the child. Finish with the closing verse, which stacks all the animals back in reverse order — sing it a second time, faster. Part 2 — moo tube surprise: On the cow verse, instead of a spoken moo, the teacher pulls the moo tube. The parent then lets the child gently pull the string themselves (with the parent\'s hand steadying the tube), before whispering the sound into each other\'s ears.',
+        setup: ['Farm animal pictures in a row at child eye level, in song order: rooster, pig, cow, sheep, horse, chicken', 'One puppet or soft toy per animal', 'One moo tube (adult-assisted for the pull — the string is under tension, so the parent holds the tube and the child pulls)', 'Song reference: "Good Morning, Farm" by Super Simple Songs'],
+        whatToSay: ['Good morning, cow!', 'How are you?', 'Pull it!', 'Whisper it to me.'],
+        goal: 'Join in the sound gaps of a repeated sung line, copy everyday sounds (animals), and build close, giggly parent-child exchange'
+      },
+      {
+        name: 'Waking Up the Barn (A Barnyard Story)',
+        description: 'Part 1 — the story with sound-makers: The barn is still sleeping. The teacher tells a short repeating story — the sun comes up, and one by one the animals wake. Each time, the whole circle calls the refrain together: "Wake up, wake up, the sun is up!" Each animal wakes with its sound-maker: the cow with the moo tube, the horse with the coconut hooves, the hens with a soft shake of the corn kernel shakers, and last of all the farmer with the cowbell. Parents call the refrain loudly from the first round; children join by the third or fourth as the pattern becomes predictable. Part 2 — parade to breakfast: The story ends with all the animals hungry. Parent and child hold hands and walk the straw path together toward the barn, shaking their corn kernel shakers and ringing the soft cowbell as they arrive.',
+        setup: ['Soft mats in a circle for the telling', 'Moo tube, coconut-shell hooves, corn kernel shakers, and cowbell laid within the teacher\'s reach in story order', 'One corn kernel shaker per child, handed out before Part 2', 'A long strip of straw / raffia as the "barnyard path" (laid flat and checked clear of trip points)', 'Large barn visual at the end of the path'],
+        whatToSay: ['Shh — the barn is sleeping.', 'Wake up, wake up!', "Who's next?", 'Carry the corn!'],
+        goal: 'Join a repeating story refrain and anticipate what comes next, and build shared parade movement'
+      },
+      {
+        name: 'Animals on the Farm Sound & Action Song',
+        description: 'Part 1 — everyone sings: The barn is awake and the animals are up — now they\'re noisy. The track plays and the whole circle sings along with the actions; parents sing audibly throughout, so children hear the words from the person closest to them. Children act out each animal as it comes. Part 2 — parent lifts and mirrors: For "big" animal moments, the parent gently lifts or carries the child a few steps, or mirrors the child\'s action face-to-face while still singing.',
+        setup: ['Open movement space', 'Soft toy or puppet for each featured animal', 'Speaker playing "The Animals On The Farm" by Super Simple Songs'],
+        whatToSay: ['Sing it with me.', 'Which animal?', 'Up we go!', 'Again.'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build shared physical play'
+      },
+      {
+        name: 'Gallop Like a Horse (Clip-Clop and Whoa)',
+        description: 'Part 1 — sing then gallop: Everyone sings a short rhyme together first, seated — "Clip-clop, clip-clop, off we go, clip-clop, clip-clop, whoa!" — while the teacher claps the coconut-shell hooves to the beat. Then children stand, hold their ribbon reins, and gallop as the singing continues. Part 2 — parent-child gallop and hug: Parent and child gallop side by side holding hands, following the coconut clip-clop rhythm and singing the rhyme, and on every "whoa!" they stop and share a big hug.',
+        setup: ['One ribbon rein per child (loops sized to hold in the hand, not to go over the head or neck)', 'Coconut-shell hooves (teacher-held, clapped together for rhythm)', 'Open movement space, cleared of obstacles'],
+        whatToSay: ['Clip-clop, off we go.', 'Sing it!', 'Whoa! Hug!', 'Again.'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build a warm closing physical bonding moment'
+      }
+    ],
+    materials: ['Farm animal pictures (rooster, pig, cow, sheep, horse, chicken, duck — A4/A5, laminated)', 'Farm animal puppets or soft toys', 'Moo tube (a cardboard tube with a taut waxed string threaded through a small hole — pulled and released to make a mooing sound; handmade in advance)', 'Corn kernel shakers (dried corn sealed inside small bottles)', 'Coconut-shell hooves (two half coconut shells, clapped together for a clip-clop sound)', 'Soft cowbell (small, blunt-edged, on a wide ribbon loop)', 'Rattles, bells, egg shakers', 'Large barn visual (felt or paper, child eye-level)', 'Straw / raffia or shredded paper (taste-safe, for a barnyard sensory strip)', 'Soft mats, arranged in a circle', 'Ribbon reins (soft, looped, one per child)', 'Speaker for "Good Morning, Farm" and "The Animals On The Farm" (Super Simple Songs)']
+  },
+  'Gumboot Stomp': {
+    overview: 'A rain-and-puddle movement playdate combining hands-on tasks — dressing, puddle-jumping, rain-sound play, and umbrella shelter — with two songs used as extensions: "Jump in the Puddles" and "Shake It Out."',
+    freePlay: {
+      purpose: 'To gently invite children into a rainy-day atmosphere through soft raincoat textures and puddle shapes before structured activities begin.',
+      setup: [
+        'A few large fabric puddle shapes scattered on the floor',
+        'Pretend raincoats/ponchos laid out nearby for children to try on if they wish'
+      ],
+      teacherModels: 'The teacher steps into one puddle shape and stomps once, pausing. Parents watch first, copy once, then pause and allow the child to explore.',
+      whatToSay: ['Rain.', 'Stomp.', 'Puddle.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Get Dressed & Stomp',
+        description: 'Part 1 — get dressed: Parent and child mime putting on raincoats, pulling up imaginary boots, and popping open an imaginary umbrella together, exaggerating each action as the teacher calls it out. Part 2 — stomp together: Holding hands, parent and child stomp around the room together, freezing whenever the teacher calls "freeze!" Part 3 — song extension: Once dressed, the pair dances and jumps along to "Jump in the Puddles," following its actions as a longer, music-led version of the stomp.',
+        setup: ['Open floor space, cleared of obstacles', 'Pretend raincoats/ponchos available if children want to wear them', 'Speaker ready for Part 3 ("Jump in the Puddles")'],
+        whatToSay: ['Coat on!', 'Boots on!', 'Umbrella up!', 'Jump, jump, jump!', 'Freeze!'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build shared imaginative dressing play'
+      },
+      {
+        name: 'Puddle Jump Path',
+        description: 'Part 1 — solo jump: Child jumps from puddle shape to puddle shape along a simple path, parent nearby for balance support. Part 2 — jump together: Parent and child hold both hands and jump into each puddle together on the count of three, calling out "splash!" each time they land.',
+        setup: ['Large fabric or foam puddle shapes taped in a loose path across the floor', 'Open space around the path for safe landing', 'Parent positioned to hold hands or spot balance'],
+        whatToSay: ['Jump.', 'Splash!', 'One, two, three.', 'Again.'],
+        goal: 'Move the whole body with balance and coordination, and build shared rhythmic jumping'
+      },
+      {
+        name: 'Rainstick Walk (Soft Rain, Heavy Rain)',
+        description: 'Part 1 — solo walk: Child tips the rainstick (or taps fingers on the floor, if unavailable) slowly and walks softly on tiptoes to match a gentle "soft rain" sound. Part 2 — parent-led downpour: Parent tips the rainstick quickly (or thumps flat hands) for a "heavy rain" sound, and together parent and child stomp fast and big around the room, then freeze the instant the sound stops. Part 3 — song extension: The pair "shakes off" the raindrops together by dancing along to "Shake It Out" — shaking arms, legs, head, and whole body, then freezing on "freeze!"',
+        setup: ['One rainstick, shared between pairs or one per pair if enough materials', 'Open movement space', 'Speaker ready for Part 3 ("Shake It Out")'],
+        whatToSay: ['Soft rain, tiptoe.', 'Heavy rain, stomp!', 'Shake it all out!', 'Freeze!'],
+        goal: 'Move with simple cues (fast-slow, stop-go), and build shared listening and response'
+      },
+      {
+        name: 'Umbrella Shelter & Thunder Hug',
+        description: 'Part 1 — walk under the umbrella: Parent holds the umbrella up while child walks slowly underneath it, staying close and matching parent\'s pace. Part 2 — thunder dash and hug: Teacher gives one soft tap on the drum for "thunder" — parent and child dash a few steps to a "shelter spot" together and share a big hug until the next round begins.',
+        setup: ['One open umbrella (child-safe) or fabric dome held by parent', 'A designated "shelter" mat or corner in the room', 'Teacher holds the drum, tapping unpredictably to cue the dash'],
+        whatToSay: ['Walk together.', 'Thunder!', 'Run! Hug!', 'Again.'],
+        goal: 'Move with balance and simple cues, and build a warm closing physical bonding moment'
+      }
+    ],
+    materials: ['Pretend raincoats or bright ponchos (child + parent sized, optional)', 'Real or pretend gumboots/wellies (optional — bare feet or socks work fine too)', 'Large fabric or foam "puddle" shapes (blue, irregular, taped to the floor)', 'Rainstick (a cardboard tube with a few bent nails or toothpicks poked through the middle and dry rice sealed inside) — or finger-tapping and flat-hand thumping on the floor if unavailable', 'One large open umbrella (child-safe, or a fabric dome held up on a hoop)', 'Small hand drum or upturned bucket (for gentle "thunder" taps)', 'Soft mats for the edges of the space', 'Speaker (for "Jump in the Puddles" and "Shake It Out")']
+  },
+  'Cupcake Dots': {
+    overview: 'A playful bakery-inspired art studio where children and parents decorate pretend cupcakes together through dabbing, dotting, and swirling. A handheld "bakery bell" gets rung together at each finished creation, marking the celebratory close of every activity.',
+    freePlay: {
+      purpose: 'To spark curiosity and invite children into a playful bakery atmosphere through tactile, colourful bakery-themed objects before structured activities begin.',
+      setup: [
+        'Set up a central surface with: empty cupcake liners nested in a muffin tin, wooden spoons, large soft pom-poms scattered in a bowl ("sprinkles")',
+        'The bakery bell placed nearby for children to notice and ring',
+        'Materials should be spread out neatly so children can see everything and choose what draws them in'
+      ],
+      teacherModels: 'The teacher places a pom-pom into a cupcake liner, taps it once with a spoon, then rings the bakery bell once and pauses. Parents first watch the teacher, then copy the same action once, and then pause to let the child try.',
+      whatToSay: ['Cupcake.', 'Sprinkle.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Cotton Swab Sprinkle Dots',
+        description: 'Part 1 — solo dotting: Child dips a jumbo cotton swab into paint and dots a paper cupcake alone. Part 2 — gift the cupcake: Parent adds a few dots beside the child\'s, then the child "presents" the finished cupcake to their parent as a pretend gift. Together they ring the bakery bell to mark it "ready."',
+        setup: ['One paper cupcake cutout per child', 'Shallow trays with bright rainbow paint colours', 'Jumbo cotton swabs (one per colour, to avoid mixing)', 'A clear workspace, aprons on'],
+        whatToSay: ['Dip.', 'Dot.', 'Colour.', 'For you!'],
+        goal: 'Develop hand-eye coordination through controlled dot placement, and build a giving/sharing moment'
+      },
+      {
+        name: 'Swirl the Frosting',
+        description: 'Part 1 — solo swirl: Child uses a popsicle stick to scoop and swirl playdough onto their own cardboard base. Part 2 — big swirl together: Parent places their hand over the child\'s on the stick, and together they make one big joint swirl on a shared larger base, ringing the bell when it\'s done.',
+        setup: ['One cardboard cupcake base per child, one larger shared base per pair', 'Small balls of soft rainbow playdough', 'Popsicle sticks / small blunt spreaders', 'Keep playdough portions small and manageable'],
+        whatToSay: ['Scoop.', 'Swirl.', 'Round and round.', 'Together!'],
+        goal: 'Build wrist rotation through guided tool-based swirling, and shared hand-over-hand coordination'
+      },
+      {
+        name: 'Pom-Pom Sprinkle Stamping',
+        description: 'Part 1 — solo stamping: Child dips pom-poms into paint and stamps sprinkle marks onto their cupcake. Part 2 — birthday cheer: Parent and child finish a "birthday cupcake" together, ring the bakery bell three times, and sing a short toddler-safe cheer together while gently clapping hands.',
+        setup: ['One paper cupcake cutout per child, one shared "birthday" cupcake per pair', 'Large pom-poms (one per colour)', 'Shallow trays of bright paint', 'Keep pom-poms separated by colour initially'],
+        whatToSay: ['Dip.', 'Press.', 'Lift.', 'Hooray!'],
+        goal: 'Strengthen whole-hand grasp through press-and-lift dabbing, and build a shared celebratory routine'
+      },
+      {
+        name: 'Sticky Sprinkle Cupcake',
+        description: 'Part 1 — solo pressing: Child presses pom-poms onto their own sticky contact-paper cupcake. Part 2 — fill it together: Parent and child work together to fill in any remaining gaps, then hold the finished piece up together, ring the bell, and clap.',
+        setup: ['One cupcake-shaped piece of contact paper per child (sticky side out, taped down at the edges)', 'Small bowls of large pom-poms sorted by colour', 'A clear workspace'],
+        whatToSay: ['Pick.', 'Press.', 'Stick.', 'We did it!'],
+        goal: 'Refine pincer grasp through pressing soft objects onto a resistant surface, and build shared task completion'
+      }
+    ],
+    materials: ['Empty muffin tin / cupcake liners (assorted bright colours)', 'Wooden spoons', 'Large soft pom-poms (assorted bright colours — used for both sprinkles and stamping)', 'Cotton swabs (jumbo / toddler-grip size)', 'Washable paint (bright rainbow colours, in shallow trays)', 'Thick paper pre-cut into cupcake shapes (one per child, one extra per pair)', 'Soft coloured playdough (bright rainbow colours)', 'Popsicle sticks / small blunt spreaders', 'Cardboard cupcake bases (thick, sturdy)', 'Clear contact paper (sticky side out)', 'Small bowls / trays', 'Aprons', 'Bakery bell (a small toddler-safe service bell, or a bell taped to a wooden spoon handle)']
+  },
+  'Sand Dune Scoop': {
+    overview: 'A texture-rich sensory studio exploring dry, kinetic, and taste-safe sand together, with a handmade "desert wind shaker" used to signal transitions and add a whooshing dune-wind sound throughout.',
+    freePlay: {
+      purpose: 'To gently invite children into sensory exploration through varied sand textures before structured activities begin.',
+      setup: [
+        'Set up one large surface with three small trays: dry sand, kinetic sand, and taste-safe cloud sand',
+        'The desert wind shaker placed nearby for children to notice and tip',
+        'Scoops, cups, and small rakes nearby',
+        'Towels underneath trays'
+      ],
+      teacherModels: 'The teacher tips the wind shaker slowly, listening to the whoosh, then sits inside the space and slowly scoops, pours, and presses each sand texture in turn. Parents watch first, copy once, then pause and allow the child to explore.',
+      whatToSay: ['Scoop.', 'Feel.', 'Whoosh.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Dry Sand Pour & Sift',
+        description: 'Part 1 — child pours: Child pours dry sand through a funnel while parent holds the sieve steady underneath. Part 2 — swap roles: Parent and child swap — child now holds the sieve while parent pours, tipping the wind shaker together in between turns.',
+        setup: ['One low tray per pair with dry play sand', 'Funnels, sieves, and small pouring cups', 'Towel underneath each tray'],
+        whatToSay: ['Pour.', 'Sift.', 'My turn, your turn.', 'Whoosh!'],
+        goal: 'Build bilateral coordination through sustained pouring, and practice turn-taking with a parent'
+      },
+      {
+        name: 'Kinetic Sand Mold & Press',
+        description: 'Part 1 — solo mold: Child packs kinetic sand into a mold, presses, and flips to reveal a shape. Part 2 — handprint match: Parent and child each press one hand into a flattened patch of kinetic sand side by side, comparing handprint sizes together.',
+        setup: ['One low tray per child with kinetic sand, plus a flattened shared patch for handprints', 'Simple sand molds (2–3 per child)', 'Small scoops for packing'],
+        whatToSay: ['Press.', 'Pack.', 'Flip.', 'Whose hand is bigger?', 'Look!'],
+        goal: 'Develop hand strength and cause-and-effect reasoning, and build shared comparative observation'
+      },
+      {
+        name: 'Cloud Sand Treasure Dig',
+        description: 'Part 1 — solo dig: Child digs through cloud sand to find hidden objects. Part 2 — hide and find for each other: Parent hides an object for the child to find, then the child hides one for the parent, taking turns being the "hider" and the "finder," tipping the wind shaker as a "searching" sound.',
+        setup: ['One low tray per pair with taste-safe cloud sand', 'Hidden wooden shapes, buttons, or plastic shells tucked inside', 'Small rakes and scoops'],
+        whatToSay: ['Dig.', 'Find.', 'Now you hide it!', 'Whoosh!'],
+        goal: 'Strengthen tactile discrimination and search persistence, and build shared hide-and-seek play'
+      },
+      {
+        name: 'Build a Dune',
+        description: 'Part 1 — solo mound: Child mounds and pats one texture into a small dune. Part 2 — build one together: Parent and child combine all three textures into one larger shared dune, patting and smoothing it together with four hands, tipping the wind shaker over their finished dune at the end.',
+        setup: ['All three trays (dry, kinetic, cloud sand) placed side by side, with a larger shared building space', 'One small rolling pin or smooth block per pair', 'A clear shared workspace, aprons on'],
+        whatToSay: ['Mound.', 'Pat.', 'Smooth.', 'Together!', 'Whoosh!'],
+        goal: 'Build comparative tactile reasoning, and shared collaborative building'
+      }
+    ],
+    materials: ['Dry play sand (large low tray)', 'Funnels, sieves, and small pouring cups', 'Kinetic sand', 'Sand molds (simple shapes — shells, stars, blocks)', 'Small scoops and rakes', 'Taste-safe "cloud sand" (flour + edible oil, or cornstarch + edible oil mix)', 'Hidden large safe objects (wooden shapes, big buttons, plastic shells)', 'Large shallow trays (one per texture, sized for pair use)', 'Rolling pins or smooth wooden blocks (for smoothing)', 'Towels / wipes', 'Aprons', 'Desert wind shaker (a cardboard tube with a few small dowels or toothpicks poked through the middle and dry rice sealed inside — tipped slowly end to end for a whooshing "wind over dunes" sound)']
+  },
+  'Mix It Up': {
+    overview: 'Walk into a giant red-yellow-blue art studio: a block-filled colour table, a huge printing mat, and messy handprint mixing magic. We end with a fun "follow-the-ring" paint trail and crayon-on-colour paper challenge — bright, bold, and totally toddler-proof.',
+    activities: [
+      {
+        name: 'Primary-Colour Block Sensory Table',
+        description: 'Big red, yellow and blue foam/plastic blocks to sort, stack, gather and build by colour.',
+        whatToSay: ['Red.', 'Yellow.', 'Blue.', 'Stack.'],
+        goal: 'Sort and build by colour, and explore simple construction'
+      },
+      {
+        name: 'Plastic Block Printing on the Big Mat',
+        description: 'Dip blocks in primary-colour paint trays and stamp, drag and press to make bold tracks, dots and patterns.',
+        whatToSay: ['Dip.', 'Stamp.', 'Drag.', 'Again.'],
+        goal: 'Create lines, dots and patterns with simple tools'
+      },
+      {
+        name: 'Overlap Hand Impressions (Colour Magic!)',
+        description: 'Make a handprint in one colour, then overlap a second colour to watch colours change where they meet.',
+        whatToSay: ['Handprint.', 'Overlap.', 'New colour!'],
+        goal: 'Spot how colours change when they mix'
+      },
+      {
+        name: 'Red-Yellow-Blue Ring Challenge',
+        description: 'Colour on same-colour vs contrast sheets, then finger-paint red, yellow and blue around a bold black ring to practise following a shape.',
+        whatToSay: ['Round.', 'Go around.', 'Red, yellow, blue.'],
+        goal: 'Practise following a shape and spotting colour contrast'
+      }
+    ],
+    materials: ['Big red, yellow and blue foam/plastic blocks', 'Primary-colour paint in shallow trays', 'A large printing mat and paper', 'Washable paint for handprints', 'Same-colour and contrast sheets', 'Crayons', 'Sheets with a bold black ring', 'Aprons']
+  },
+  'Petal Bloom Basket': {
+    overview: 'A soft, fragrant garden sensory space where children and parents touch, sniff, and arrange real flowers and petals together, with a handmade "bloom bell" marking each blossoming moment.',
+    freePlay: {
+      purpose: 'To gently invite children into a soft, fragrant garden atmosphere through real petals and flowers before structured activities begin.',
+      setup: [
+        'Set up a central surface with: small woven baskets filled with large soft petals, a few whole flowers laid out',
+        'The bloom bell placed nearby for children to notice and tap',
+        'Materials should be spread out neatly so children can see everything and choose what draws them in'
+      ],
+      teacherModels: 'The teacher picks up a petal, brings it near the nose, sniffs once, then taps the bloom bell gently and pauses. Parents first watch the teacher, then copy the same action once, and then pause to let the child try.',
+      whatToSay: ['Petal.', 'Smell.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Petal Basket Scoop & Sniff',
+        description: 'Part 1 — solo scoop: Child scoops petals into their own basket, sniffing each handful. Part 2 — scoop for parent: Child scoops a handful and places it directly into parent\'s cupped hands for parent to sniff and react to, then parent does the same, tapping the bloom bell after each exchange.',
+        setup: ['One basket per child', 'Bowls of large soft petals (mixed types)', 'Scoops and small cups'],
+        whatToSay: ['Scoop.', 'Smell.', 'For you!'],
+        goal: 'Explore textures and scents through hands-on play, and build shared giving and reacting'
+      },
+      {
+        name: 'Petal Press Collage',
+        description: 'Part 1 — solo press: Child presses petals onto their own sticky contact paper. Part 2 — shared collage: Parent and child work together on one larger shared sheet, then hold it up to the light together and tap the bloom bell to celebrate the finished piece.',
+        setup: ['One piece of contact paper per child, one larger shared piece per pair', 'Bowls of mixed soft petals', 'A clear workspace'],
+        whatToSay: ['Pick.', 'Press.', 'Stick.', 'Look together!'],
+        goal: 'Refine pincer grasp through pressing petals, and build shared creative admiration'
+      },
+      {
+        name: 'Flower Petal Pull',
+        description: 'Part 1 — parent holds, child pulls: Parent holds a whole flower steady while the child gently pulls off petals, dropping them into a basket. Part 2 — swap: Child holds the flower steady for the parent to pull a petal, then they take turns back and forth until the flower is bare.',
+        setup: ['A few whole flowers with soft, easy-to-pull petals (daisies or similar work well)', 'One basket per pair', 'A clear workspace'],
+        whatToSay: ['Pull.', 'Petal.', 'My turn, your turn.', 'Again.'],
+        goal: 'Build pincer grasp and hand strength, and practice cooperative turn-taking'
+      },
+      {
+        name: 'Petal Puddle & Splash',
+        description: 'Part 1 — solo splash: Child floats whole flowers and scatters petals into a shallow tray of water, pushing them under and watching them pop back up. Part 2 — shared colour crush: Parent and child choose a few vibrant petals (like marigolds or red roses) together, drop them into a small bowl of water, and use a wooden spoon or bare fingers to crush and squeeze them, watching the water change colour. They tap the bloom bell together when the "magic flower juice" is ready.',
+        setup: ['Shallow plastic or metal trays filled with a thin layer of lukewarm water (one per pair)', 'Small empty bowls and short wooden spoons or blunt wooden pestles', 'Fresh whole flowers and highly pigmented petals (marigolds, bright roses, or hibiscus)', 'A small towel nearby for quick hand wipes'],
+        whatToSay: ['Float.', 'Push.', 'Squeeze.', 'Change!'],
+        goal: 'Explore buoyancy, water resistance, and natural colour release through tactile crushing, while building shared discovery'
+      }
+    ],
+    materials: ['Large soft flower petals (roses, marigolds — pesticide-free)', 'A few whole soft-stemmed flowers with easy-to-pull petals (daisies or similar)', 'Small woven baskets (one per child, one shared per pair)', 'Shallow trays', 'Clear contact paper', 'Scoops & small bowls', 'Two to three distinct types of flowers/petals (for sorting)', 'Bloom bell (a small bell sewn or taped into the center of a large felt flower shape, tapped or shaken to make a soft "bloom" chime)']
+  },
+  'Tick Tock Mouse': {
+    overview: 'A playful music and storytelling playdate built around "Hickory Dickory Dock" and "I\'m a Little Cuckoo Clock," using rice-bottle gear shakers, a paper-plate clock tambourine, a wooden spoon chime, and a parent-operated cuckoo whistle.',
+    freePlay: {
+      purpose: 'To gently invite children into music and storytelling through ticking sounds, a soft toy mouse, and body percussion before structured activities begin.',
+      setup: [
+        'Large cardboard clock face displayed at child eye level, with a soft toy mouse resting near the top',
+        'Soft floor mats arranged in a circle',
+        'A small basket of rice-bottle shakers and the paper-plate clock tambourine',
+        'One real wind-up timer placed nearby, ticking softly'
+      ],
+      teacherModels: 'The teacher holds the timer near their ear, listens, then pats "tick-tock" on their knees. The teacher shakes the paper-plate clock tambourine once and pauses. Parents watch first, copy once, then pause and allow the child to respond.',
+      whatToSay: ['Tick.', 'Tock.', 'Mouse.', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Listen for the Tick (Body Percussion)',
+        description: 'Part 1 — solo listen and pat: Children hold a timer to their ear, then pat "tick-tock" on their own knees. Part 2 — patty-cake tick-tock: Parent and child face each other and pat the tick-tock rhythm onto each other\'s hands, patty-cake style.',
+        setup: ['2–3 real wind-up timers (battery covers secured)', 'Children seated with parents in a circle'],
+        whatToSay: ['Listen.', 'Tick-tock.', 'Pat with me!', 'Again.'],
+        goal: 'Make a sound and hear what happens, and build shared rhythmic play'
+      },
+      {
+        name: 'Hickory Dickory Dock Rhyme & Climb',
+        description: 'Part 1 — mouse climbs the tower: Children recite the rhyme while moving a soft toy mouse up a soft-block tower, and the teacher strikes the wooden spoon & lid "chime" once for "the clock struck one." Part 2 — child climbs the parent tower: Child climbs gently into parent\'s lap or up parent\'s braced legs as the "clock tower," then parent lifts their arms up like the clock striking one (teacher chimes again), and child "runs down" by sliding off parent\'s lap.',
+        setup: ['One low soft-block tower or small step per 2–3 children', 'One soft toy mouse per child', 'Wooden spoon & pot lid (teacher-held, struck once per "strike" moment)'],
+        whatToSay: ['Hickory dickory dock.', 'Climb up me!', '(chime!)', 'Down you go!', 'Again.'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build physical trust and closeness'
+      },
+      {
+        name: 'Mouse Scurry & Freeze (Rice Shakers)',
+        description: 'Part 1 — solo scurry: Children scurry on hands and knees to a shaker rhythm, freezing on cue. Part 2 — chase and hug freeze: Parent gently "chases" the child in a scurry, and on "freeze," they catch up and share a quick hug before scurrying again.',
+        setup: ['One rice-bottle shaker per child', 'Open movement space, soft mats down', 'Optional grey/brown scarves tucked at the waist as "tails"'],
+        whatToSay: ['Scurry, scurry.', 'Tick-tock, stop!', 'Caught you! Freeze hug!', 'Again.'],
+        goal: 'Move to sounds and simple cues, and build playful physical bonding'
+      },
+      {
+        name: "I'm a Little Cuckoo Clock (Parent-Child Sway & Pop)",
+        description: 'Part 1 — parent leads the sway: Parent holds child facing them, swaying together on "tick tock, tick tock, I\'m a little cuckoo clock," popping up together on "one o\'clock" — teacher sounds the cuckoo whistle at this exact moment. Part 2 — child leads the sway: Roles reverse — child (with guidance) tries leading the sway motion, giggling through the whistle-cued "cuckoo!" pop-up moment again.',
+        setup: ['Open floor space, parents and children facing each other', 'Teacher holds the cuckoo slide whistle, sounding it only at the "cuckoo" moment'],
+        whatToSay: ['Tick tock, tick tock.', '(cuckoo!)', 'Now you lead!', 'Again.'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build a warm, reciprocal closing bonding moment'
+      }
+    ],
+    materials: ['Large cardboard or paper clock face (with a brass-fastener movable hand)', 'Soft toy mouse (one per child if possible)', 'Real wind-up kitchen timers or large-tick clocks (2–3, battery covers secured)', 'Rice-bottle "gear" shakers (small sealed bottles filled with rice or beads)', 'Paper-plate clock tambourine (two paper plates stapled together with a few bells inside, decorated as a clock face with a drawn hour hand)', 'Wooden spoon & metal pot lid "chime" (struck together for the "one o\'clock" strike moment)', 'Cuckoo slide whistle or small bird-call whistle (parent-operated only — not shared or mouthed by children)', 'Soft mats, arranged in a circle', 'Low soft-block "clock tower" or small step/ramp', 'Grey or brown scarves (for mouse tails, optional)']
+  },
+  'The Very Messy Dino': {
+    overview: 'A gloriously messy prehistoric world where little hands tear, scrunch, squish and paint. Children explore all kinds of textures — crinkly paper, squishy mud, smooth stones — and paint their very own dino egg to take home.',
+    activities: [
+      {
+        name: 'Dino Nest',
+        description: 'Scoop, scrunch and roll crunchy torn paper, paper balls and smooth stone "eggs," building a cosy dino nest together.',
+        whatToSay: ['Scoop.', 'Scrunch.', 'Roll.'],
+        goal: 'Explore textures with safe materials and build together'
+      },
+      {
+        name: 'Squishy Dino Mud',
+        description: 'Tear paper into tubs of water, then squeeze and mash the soft, soggy paper — feeling it turn to prehistoric mud.',
+        whatToSay: ['Tear.', 'Squeeze.', 'Squishy.'],
+        goal: 'Explore the change from dry to wet and squishy'
+      },
+      {
+        name: 'Muddy Dino Colours',
+        description: 'Drip and swirl black and white paint into muddy greys, mixing with hands and tools and watching the shades change.',
+        whatToSay: ['Drip.', 'Swirl.', 'Mix.'],
+        goal: 'Mix colours and create marks and patterns'
+      },
+      {
+        name: 'Paint a Dino Egg',
+        description: 'Mix your own shades with your fingers and paint a smooth stone into a dino egg — a little keepsake to take home.',
+        whatToSay: ['Mix.', 'Paint.', 'My egg!'],
+        goal: 'Paint a keepsake and try simple art tools'
+      }
+    ],
+    materials: ['Crinkly / torn paper and paper balls', 'Shallow tubs of water', 'Smooth stones (dino "eggs")', 'Black and white washable paint', 'Simple tools (spatulas / spoons)', 'Aprons']
+  },
+  'Welcome to the Circus': {
+    overview: 'A big-top movement playdate combining hands-on tasks — tightrope balance, scarf juggling, an animal parade, and a circus swing — with three songs used as extensions: "Wobbly Clown Dance Song," "I Like to Move It," and "Dance Like a Circus Trapeze Artist."',
+    freePlay: {
+      purpose: 'To gently invite children into a big-top atmosphere through soft juggling scarves and circus visuals before structured activities begin.',
+      setup: [
+        'Juggling scarves scattered loosely on the floor',
+        'Soft toy lion and elephant placed nearby',
+        'Small hand bell displayed for children to notice and ring'
+      ],
+      teacherModels: 'The teacher picks up a scarf, tosses it gently in the air, and catches it, then pauses. Parents first watch the teacher, then copy the same action once, and then pause to let the child try.',
+      whatToSay: ['Circus.', 'Scarf.', 'Ring!', 'Your turn.']
+    },
+    activities: [
+      {
+        name: 'Tightrope Twirl & Wobbly Clown Wobble',
+        description: 'Part 1 — solo walk: Child walks slowly along the taped tightrope line, arms out for balance. Part 2 — parent-supported twirl: Parent holds both of the child\'s hands and helps them balance along the line, pausing halfway for a gentle supported twirl before continuing to the end. Part 3 — song extension: Once off the tightrope, the pair shakes off the concentration with a silly wobble dance to "Wobbly Clown Dance Song," wobbling and freezing together in funny poses.',
+        setup: ['A long strip of tape (or low balance beam) laid across the floor', 'Open space on either side for safe stepping off', 'Speaker ready for Part 3 ("Wobbly Clown Dance Song")'],
+        whatToSay: ['Walk the line.', 'Balance.', 'Twirl!', 'Now wobble!'],
+        goal: 'Move the whole body with balance and coordination, and build shared physical trust'
+      },
+      {
+        name: 'Juggling Scarf Toss',
+        description: 'Part 1 — solo toss: Child tosses a light scarf up and tries to catch it or watch it float down. Part 2 — toss to each other: Parent and child stand close and toss a scarf back and forth between them, calling "up!" and "catch!" each time.',
+        setup: ['2–3 light juggling scarves per pair', 'Open standing space, close together for easy tossing', 'A clear floor area in case scarves drift'],
+        whatToSay: ['Toss!', 'Up.', 'Catch!', 'Again.'],
+        goal: 'Develop hand-eye coordination and visual tracking, and build shared turn-based play'
+      },
+      {
+        name: 'Lion Roar & Elephant Stomp Parade',
+        description: 'Part 1 — solo animal moves: Children take turns being a "leaping lion" (crawling and roaring) and a "dancing elephant" (stomping slowly, arms swinging like a trunk). Part 2 — parade together: Parent and child join hands and parade around the room as their chosen animal, roaring or stomping together on cue, switching animals when the teacher rings the bell. Part 3 — song extension: The whole group parades together to "I Like to Move It" as an energetic finale lap, mixing in animal moves with the song\'s dance moves.',
+        setup: ['Open movement space', 'Soft toy lion and elephant or simple ear/mask props (optional)', 'Teacher rings the bell to cue animal switches', 'Speaker ready for Part 3 ("I Like to Move It")'],
+        whatToSay: ['Lion, roar!', 'Elephant, stomp!', 'Parade together!', 'Move it!'],
+        goal: 'Sing-and-act familiar songs and rhymes, and build shared imaginative animal play'
+      },
+      {
+        name: 'Circus Swing Sway',
+        description: 'Part 1 — teacher demo with doll: Teacher holds a soft doll and gently sways/swings it side to side and in a small circle, showing 2–3 simple variations parents can try. Part 2 — parent and child sway together: Parents choose whichever variation suits their child and comfort level — swaying hands side to side, holding the child close and swaying together, or a gentle lift-and-sway. Part 3 — song: The sway is set to "Dance Like a Circus Trapeze Artist," following its reach-and-sway actions as the session\'s calm closing number.',
+        setup: ['One soft doll for the teacher\'s demo', 'Open floor space, soft mats down', 'Speaker playing "Dance Like a Circus Trapeze Artist" throughout this activity'],
+        whatToSay: ['Sway.', 'Reach high!', 'Round and round.', 'Your way, together.'],
+        goal: 'Move to music with simple cues, and build a warm, low-pressure closing bonding moment'
+      }
+    ],
+    materials: ['A long strip of tape or a low balance beam (for the "tightrope")', 'Light juggling scarves (2–3 per child, oversized and lightweight)', 'Soft toy lion and elephant, or simple animal masks/ears (optional)', 'Small hand bell (for cues)', 'One soft doll (for teacher demonstration)', 'Soft mats for the edges of the space', 'Speaker (for all three songs)']
+  },
+
   'Penguin Waddles': {
     overview: `A movement playdate exploring four different ways to move like a penguin — dancing and freezing to music, waddling an egg to the nest, sliding on the ice, and chasing slippery fish. The energy builds and then winds down into a warm huddle.`,
     bigGoals: `move, climb and balance using the whole body · move to sounds and simple cues · practise little hand and finger control`,

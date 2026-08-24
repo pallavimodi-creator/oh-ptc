@@ -243,6 +243,7 @@ export default function SessionPlan() {
         </section>
 
         {/* Free Play */}
+        {plan.freePlay && (
         <section className="rounded-card border border-brand-orange/15 bg-brand-orange/[0.05] p-4">
           <h2 className="mb-3 text-[11px] font-bold text-brand-orange">
             free play
@@ -280,6 +281,7 @@ export default function SessionPlan() {
             </div>
           </div>
         </section>
+        )}
 
         {/* Activities */}
         <section className="space-y-3">
@@ -301,6 +303,7 @@ export default function SessionPlan() {
                 <p className="my-3 text-[14px] leading-relaxed text-ink">{activity.description}</p>
 
                 <div className="space-y-3">
+                  {activity.setup && activity.setup.length > 0 && (
                   <div>
                     <span className="text-[11px] font-bold text-ink-muted">set-up</span>
                     <ul className="mt-1.5 space-y-1">
@@ -312,7 +315,9 @@ export default function SessionPlan() {
                       ))}
                     </ul>
                   </div>
+                  )}
 
+                  {activity.whatToSay && activity.whatToSay.length > 0 && (
                   <div>
                     <span className="text-[11px] font-bold text-ink-muted">what to say</span>
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -323,11 +328,14 @@ export default function SessionPlan() {
                       ))}
                     </div>
                   </div>
+                  )}
 
+                  {activity.goal && (
                   <div className="rounded-lg bg-brand-orange/[0.07] px-3 py-2">
                     <span className="text-[11px] font-bold text-ink-muted">goal</span>
                     <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{activity.goal}</p>
                   </div>
+                  )}
 
                   {(activity.ifNotReady || activity.ifReadyForMore) && (
                     <div className="space-y-1.5">
