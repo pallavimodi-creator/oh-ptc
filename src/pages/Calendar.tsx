@@ -428,6 +428,15 @@ export default function Calendar() {
 
       {/* Agenda list */}
       <main className="mx-auto max-w-content space-y-5 px-4 py-5">
+        {currentSessions.some((s) => s.big) && (
+          <div className="rounded-card border border-brand-orange/20 bg-brand-orange/[0.06] px-3.5 py-2.5">
+            <p className="text-[12px] leading-relaxed text-ink-muted">
+              <span className="font-bold text-brand-orange">*</span> marks a{' '}
+              <span className="font-bold text-ink">big playdate</span> — marketed
+              more widely, higher participation expected.
+            </p>
+          </div>
+        )}
         {sortedDates.length === 0 ? (
           <div className="rounded-card border border-dashed border-ink/15 bg-bg-subtle/60 py-14 text-center">
             <p className="text-[13px] text-ink-muted">
@@ -453,6 +462,7 @@ export default function Calendar() {
                       key={session.id}
                       type={session.type}
                       name={session.name}
+                      big={session.big}
                       onClick={() => navigate(`/session/${session.id}`)}
                     />
                   ))}

@@ -72,10 +72,37 @@ export default function SessionPlan() {
     }
   };
 
-  if (!session || !plan) {
+  if (!session) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p className="text-muted-foreground">Session not found</p>
+      </div>
+    );
+  }
+
+  if (!plan) {
+    return (
+      <div className="min-h-screen">
+        <header className="sticky top-0 z-40 border-b border-ink/10 bg-bg/90 backdrop-blur-md">
+          <div className="mx-auto flex max-w-content items-center gap-3 px-4 py-3.5">
+            <button
+              onClick={() => navigate(-1)}
+              aria-label="back"
+              className="-ml-1 rounded-full p-2 text-ink-muted transition-colors hover:bg-bg-subtle hover:text-ink"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+            <h1 className="truncate text-[20px] font-extrabold leading-tight text-ink">
+              {session.name.toLowerCase()}
+            </h1>
+          </div>
+        </header>
+        <main className="mx-auto max-w-content px-4 py-16 text-center">
+          <p className="text-[15px] font-bold text-ink">plan coming soon</p>
+          <p className="mt-2 text-[13px] text-ink-muted">
+            the full plan for this playdate is being prepared.
+          </p>
+        </main>
       </div>
     );
   }
@@ -192,6 +219,12 @@ export default function SessionPlan() {
             overview
           </h2>
           <p className="text-[15px] leading-relaxed text-ink">{plan.overview}</p>
+          {plan.bigGoals && (
+            <div className="mt-2 rounded-lg bg-brand-orange/[0.07] px-3 py-2">
+              <span className="text-[11px] font-bold text-ink-muted">big goals</span>
+              <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{plan.bigGoals}</p>
+            </div>
+          )}
         </section>
 
         {/* Materials */}
@@ -295,6 +328,23 @@ export default function SessionPlan() {
                     <span className="text-[11px] font-bold text-ink-muted">goal</span>
                     <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{activity.goal}</p>
                   </div>
+
+                  {(activity.ifNotReady || activity.ifReadyForMore) && (
+                    <div className="space-y-1.5">
+                      {activity.ifNotReady && (
+                        <p className="text-[13px] leading-relaxed text-ink-muted">
+                          <span className="font-bold text-ink">if not yet ready · </span>
+                          {activity.ifNotReady}
+                        </p>
+                      )}
+                      {activity.ifReadyForMore && (
+                        <p className="text-[13px] leading-relaxed text-ink-muted">
+                          <span className="font-bold text-ink">if ready for more · </span>
+                          {activity.ifReadyForMore}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

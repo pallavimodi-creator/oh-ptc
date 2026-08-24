@@ -6,6 +6,9 @@ export interface Session {
   name: string;
   type: SessionType;
   excludedCentres?: string[];
+  // Big playdate — marketed harder, more participation expected. Shown with
+  // an asterisk on the calendar. Alternate Saturdays are big playdates.
+  big?: boolean;
 }
 
 export const SESSION_TYPES: Record<SessionType, { label: string; color: string }> = {
@@ -136,12 +139,69 @@ export const JUNE_2026_SESSIONS: Session[] = [
   { id: 'jn23', date: '2026-06-30', name: 'Bunny Grooves', type: 'music' },
 ];
 
+// Fridays (03, 10, 17, 24, 31) and Sundays (05, 12, 19, 26) are holidays —
+// no session, so those dates are simply absent. The same session runs at
+// every centre each day.
+export const JULY_2026_SESSIONS: Session[] = [
+  { id: 'jl1', date: '2026-07-01', name: 'Glow & Shadow', type: 'art' },
+  { id: 'jl2', date: '2026-07-02', name: 'Warm & Cold Splash', type: 'sensory' },
+  { id: 'jl3', date: '2026-07-04', name: 'Fly High', type: 'movement' },
+  { id: 'jl4', date: '2026-07-06', name: 'Smell & Sniff', type: 'sensory' },
+  { id: 'jl5', date: '2026-07-07', name: 'Spider Wiggle', type: 'music' },
+  { id: 'jl6', date: '2026-07-08', name: 'Mixing Bowls', type: 'sensory' },
+  { id: 'jl7', date: '2026-07-09', name: 'Tunnel Adventure', type: 'movement' },
+  { id: 'jl8', date: '2026-07-11', name: 'Rainbow Swirl', type: 'art' },
+  { id: 'jl9', date: '2026-07-13', name: 'Bubble Pop Up', type: 'sensory' },
+  { id: 'jl10', date: '2026-07-14', name: 'Busy City Runners', type: 'movement' },
+  { id: 'jl11', date: '2026-07-15', name: 'Bugs & Bee Sounds', type: 'music' },
+  { id: 'jl12', date: '2026-07-16', name: 'Stars & Moon', type: 'art' },
+  { id: 'jl13', date: '2026-07-18', name: 'Mixing Bowls', type: 'sensory' },
+  { id: 'jl14', date: '2026-07-20', name: 'Spider Wiggle', type: 'music' },
+  { id: 'jl15', date: '2026-07-21', name: 'Busy City Runners', type: 'movement' },
+  { id: 'jl16', date: '2026-07-22', name: 'Nature Press', type: 'art' },
+  { id: 'jl17', date: '2026-07-23', name: 'Bugs & Bee Sounds', type: 'music' },
+  { id: 'jl18', date: '2026-07-25', name: 'Warm & Cold Splash', type: 'sensory' },
+  { id: 'jl19', date: '2026-07-27', name: 'Stars & Moon', type: 'art' },
+  { id: 'jl20', date: '2026-07-28', name: 'Fly High', type: 'movement' },
+  { id: 'jl21', date: '2026-07-29', name: 'Glow & Shadow', type: 'art' },
+  { id: 'jl22', date: '2026-07-30', name: 'Smell & Sniff', type: 'sensory' },
+];
+
+// Fridays and Sundays are holidays (absent). Mon 14 Sep is also a holiday
+// (day after Ganesh Chaturthi). Alternate Saturdays are BIG playdates:
+// Ganesh Chaturthi (12th) and Taco Tuesday (26th).
+export const SEPTEMBER_2026_SESSIONS: Session[] = [
+  { id: 'sp1', date: '2026-09-01', name: 'Frost & Shine', type: 'art' },
+  { id: 'sp2', date: '2026-09-02', name: 'Sand Dune Scoop', type: 'sensory' },
+  { id: 'sp3', date: '2026-09-03', name: 'Barnyard Beats', type: 'music' },
+  { id: 'sp4', date: '2026-09-05', name: 'Welcome to the Circus', type: 'movement' },
+  { id: 'sp5', date: '2026-09-07', name: 'Cupcake Dots', type: 'art' },
+  { id: 'sp6', date: '2026-09-08', name: 'Petal Bloom Basket', type: 'sensory' },
+  { id: 'sp7', date: '2026-09-09', name: 'Gumboot Stomp', type: 'movement' },
+  { id: 'sp8', date: '2026-09-10', name: 'Penguin Waddles', type: 'movement' },
+  { id: 'sp9', date: '2026-09-12', name: 'Ganesh Chaturthi Special', type: 'special', big: true },
+  { id: 'sp10', date: '2026-09-15', name: 'Paw Patrol', type: 'art' },
+  { id: 'sp11', date: '2026-09-16', name: 'Sand Dune Scoop', type: 'sensory' },
+  { id: 'sp12', date: '2026-09-17', name: 'Penguin Waddles', type: 'movement' },
+  { id: 'sp13', date: '2026-09-19', name: 'The Tiger Who Came to Tea', type: 'music' },
+  { id: 'sp14', date: '2026-09-21', name: 'Frost & Shine', type: 'art' },
+  { id: 'sp15', date: '2026-09-22', name: 'Petal Bloom Basket', type: 'sensory' },
+  { id: 'sp16', date: '2026-09-23', name: 'Barnyard Beats', type: 'music' },
+  { id: 'sp17', date: '2026-09-24', name: 'Gumboot Stomp', type: 'movement' },
+  { id: 'sp18', date: '2026-09-26', name: 'Taco Tuesday', type: 'sensory', big: true },
+  { id: 'sp19', date: '2026-09-28', name: 'Cupcake Dots', type: 'art' },
+  { id: 'sp20', date: '2026-09-29', name: 'Sand Dune Scoop', type: 'sensory' },
+  { id: 'sp21', date: '2026-09-30', name: 'Barnyard Beats', type: 'music' },
+];
+
 export const ALL_SESSIONS: Record<string, Session[]> = {
   'February 2026': FEBRUARY_2026_SESSIONS,
   'March 2026': MARCH_2026_SESSIONS,
   'April 2026': APRIL_2026_SESSIONS,
   'May 2026': MAY_2026_SESSIONS,
   'June 2026': JUNE_2026_SESSIONS,
+  'July 2026': JULY_2026_SESSIONS,
+  'September 2026': SEPTEMBER_2026_SESSIONS,
 };
 
 export const AVAILABLE_MONTHS = [
@@ -150,6 +210,8 @@ export const AVAILABLE_MONTHS = [
   'April 2026',
   'May 2026',
   'June 2026',
+  'July 2026',
+  'September 2026',
 ];
 
 export interface SessionActivity {
@@ -158,10 +220,15 @@ export interface SessionActivity {
   setup: string[];
   whatToSay: string[];
   goal: string;
+  // Optional differentiation, shown when present.
+  ifNotReady?: string;
+  ifReadyForMore?: string;
 }
 
 export interface SessionPlan {
   overview: string;
+  // Optional session-level "big goals" line, shown under the overview.
+  bigGoals?: string;
   freePlay: {
     purpose: string;
     setup: string[];
@@ -173,6 +240,310 @@ export interface SessionPlan {
 }
 
 export const SESSION_PLANS: Record<string, SessionPlan> = {
+  'Penguin Waddles': {
+    overview: `A movement playdate exploring four different ways to move like a penguin — dancing and freezing to music, waddling an egg to the nest, sliding on the ice, and chasing slippery fish. The energy builds and then winds down into a warm huddle.`,
+    bigGoals: `move, climb and balance using the whole body · move to sounds and simple cues · practise little hand and finger control`,
+    freePlay: {
+      purpose: `To gently invite children into the penguin theme through cold and smooth polar textures before the big movement begins.`,
+      setup: [
+        `Lay out white fleece "snow", crinkly foil "ice", smooth blue satin "sea" and a sealed cold water bottle to touch`,
+        `Scatter a few felt fish to find among them`,
+        `All items large and safe; the cold bottle stays sealed`,
+        `Parents describe the textures and temperatures as children explore`,
+      ],
+      teacherModels: `The teacher touches the cold bottle, says "brrr — cold ice," strokes the smooth "sea," and pauses. Parents watch first, copy once, then pause and let the child explore the textures.`,
+      whatToSay: [`Cold.`, `Smooth.`, `Brrr.`, `Your turn.`],
+    },
+    activities: [
+      {
+        name: `Penguin Dance & Freeze`,
+        description: `Children dance along to the penguin song, copying the growing set of moves, and freeze each time the music stops.`,
+        setup: [
+          `Open, clear floor space`,
+          `Play Penguin Dance by Jack Hartmann (https://www.youtube.com/watch?v=uf0uKmKwnKs)`,
+          `Parents dance beside their child and freeze with them so the stop is modelled`,
+        ],
+        whatToSay: [`Dance.`, `Waddle.`, `Freeze.`, `Again.`],
+        goal: `Move to sounds and simple cues (start / stop)`,
+        ifNotReady: `parent holds the child's hands and waddles with them; freezing is optional.`,
+        ifReadyForMore: `the child leads a "March of the Penguins" line for the group to follow.`,
+      },
+      {
+        name: `Waddle to the Nest`,
+        description: `Children carry their egg, waddle like a penguin to the nest, tuck it in, and sit down gently to keep it warm.`,
+        setup: [
+          `One beanbag "egg" per child; a "nest" a short waddle away, with the path cleared`,
+          `Children hold the egg in both hands or hug it to the tummy, waddle with flat penguin arms and little side-to-side steps, place it in the nest, then squat or sit beside it`,
+          `No balancing on the feet — carrying and waddling is the task`,
+        ],
+        whatToSay: [`Egg.`, `Waddle.`, `Nest.`, `Sit.`, `Warm.`],
+        goal: `Move, climb and balance using the whole body (waddling gait and squatting)`,
+        ifNotReady: `parent waddles alongside holding the child's hand; just carrying and sitting is plenty.`,
+        ifReadyForMore: `gently roll the egg along the floor to the nest with both hands (penguins roll their eggs!), then sit beside it.`,
+      },
+      {
+        name: `Slide & Swim on the Ice`,
+        description: `Children lie on the "ice" and slide on their tummies, then flap their wings and "dive in to swim."`,
+        setup: [
+          `A smooth mat or sheet as the ice; bare feet or grippy socks, no loose socks`,
+          `Short slides on the soft mat only`,
+          `Sing I'm a Little Penguin to the tune of I'm a Little Teapot (https://www.youtube.com/watch?v=eDHE6J9auSA): "I'm a little penguin, black and white… I can't fly but I love to swim, so I flap my wings and dive right in!"`,
+        ],
+        whatToSay: [`Slide.`, `Whoosh.`, `Flap.`, `Swim.`],
+        goal: `Move the whole body (core and crawling)`,
+        ifNotReady: `parent gently slides the child along the mat a short way.`,
+        ifReadyForMore: `the child slides, then "swims" across the floor flapping both arms before standing up.`,
+      },
+      {
+        name: `Slippery Fish Chase`,
+        description: `The fish are swimming away across the ice! Children waddle and slide after them, scoop them up, and bring their catch home to the family huddle.`,
+        setup: [
+          `Scatter felt fish on the blue-cloth "sea"; a grown-up gently slides a fish along the floor by hand so it "swims away" for the child to chase and grab — no strings or ribbons (a trip and tangle risk at this age)`,
+          `One shared basket as the "catch"`,
+          `Part 2 (with parent): everyone huddles in close "to share the catch and keep warm," the child snuggling into the parent's lap for a gentle rock while they count the fish together`,
+          `Finish with a water break "after all that waddling"`,
+        ],
+        whatToSay: [`Swim.`, `Chase.`, `Catch it!`, `Home.`, `Huddle.`],
+        goal: `Move the whole body to chase and grasp, then wind down together`,
+        ifNotReady: `the grown-up holds a fish still or slides it slowly for an easy grab.`,
+        ifReadyForMore: `the child chases and catches two fish, or picks each one up with a neat pinch before dropping it in the basket.`,
+      },
+    ],
+    materials: [
+      `Beanbags or small soft balls (the "eggs" — one per child)`,
+      `Smooth mat, gym mat or sheet (the sliding "ice")`,
+      `Large felt fish`,
+      `Blue cloth (the "sea")`,
+      `A "nest" — cushion, basket or taped floor circle`,
+      `Speaker for music`,
+      `Icy-world touch materials for Free Play (white fleece "snow", crinkly foil "ice", smooth blue satin "sea", a sealed cold water bottle)`,
+    ],
+  },
+  'Taco Tuesday': {
+    overview: `A taco-kitchen sensory session moving through four different textures and senses — shredding the fillings, mashing pretend guacamole, building the taco, then smelling and tasting a real one. No child is ever pushed to touch or taste.`,
+    bigGoals: `adapt to new tastes and smells · explore different textures · notice differences in food and nature`,
+    freePlay: {
+      purpose: `To gently invite children into the taco kitchen through lots of different textures and pretend cooking before structured activities begin.`,
+      setup: [
+        `Set up a few "stations" so children can move to whatever draws them in:`,
+        `Dry corn tray — a shallow tray of dry polenta or cornmeal (the "flour") with scoops, cups and small pots to run hands through`,
+        `Tissue "cheese" basket — yellow tissue paper to scrunch, tear and sprinkle, plus a couple of soft squishy "tomatoes" to squeeze`,
+        `Taco stand — empty pots, pans, wooden spoons, small plates and felt vegetables to stir, "cook" and serve to a grown-up`,
+        `Cool crinkle corner — smooth foil "wraps" and crinkly cellophane to crunch and fold`,
+        `Keep quantities generous and everything larger than a mouth; damp cloth and wipes nearby`,
+        `Invite, don't insist — a child who prefers to watch may simply look`,
+      ],
+      teacherModels: `The teacher moves slowly between two stations — runs a hand through the dry corn and lets it fall, then scrunches a piece of tissue close to the ear to hear it — and pauses. Parents watch first, copy once, then let the child explore whichever station draws them.`,
+      whatToSay: [`Feel.`, `Soft.`, `Crunchy.`, `Cook.`, `Your turn.`],
+    },
+    activities: [
+      {
+        name: `Shred the Fillings`,
+        description: `Children tear and shred soft coloured paper into "lettuce and cheese" to fill their taco.`,
+        setup: [
+          `Pre-snip the edges of each sheet so it tears easily`,
+          `Children pull and shred strips into their bowl — yellow "cheese", green "lettuce"`,
+          `Supervise so pieces stay out of mouths`,
+        ],
+        whatToSay: [`Rip.`, `Shred.`, `Small.`, `Fill.`],
+        goal: `Explore different textures (dry, papery) & notice the colours are different`,
+        ifNotReady: `parent holds the top edge so the child just pulls down to tear.`,
+        ifReadyForMore: `the child shreds into two separate colour piles.`,
+      },
+      {
+        name: `Mash the Guacamole`,
+        description: `Children mash and squish soft light-green dough into pretend guacamole, pulling out the "stones" first and spreading it smooth for their taco.`,
+        setup: [
+          `A ball of soft light-green dough per child on an individual mat, with a small bowl and a child-safe masher or fork`,
+          `Hide two or three "stones" (large wooden beads or smooth pebbles, all bigger than a mouth) in each ball to find and pull out first`,
+          `Children squish with hands, mash with the fork, and spread it smooth`,
+          `(Messier option: light-green cloud dough or a green cornflour-and-oil mash, made fresh — closer to the real squish)`,
+        ],
+        whatToSay: [`Squish.`, `Stone — out!`, `Mash.`, `Smooth.`],
+        goal: `Explore different textures (soft, squishy, smooth)`,
+        ifNotReady: `parent presses the child's hands into the dough to squish together; finding the stone is enough.`,
+        ifReadyForMore: `the child mashes until fully smooth, then scoops a spoonful into their taco shell.`,
+      },
+      {
+        name: `Build Your Taco`,
+        description: `Children place their shredded fillings, guacamole and felt vegetables inside the folded taco shell and load it up, serving it on a plate.`,
+        setup: [
+          `Felt taco shells, plates, and all the gathered fillings`,
+          `Children choose fillings, put them inside, and fold the shell over — a light "ssss" cooking sound as it goes on the plate to "warm through"`,
+          `Fillings all larger than a mouth`,
+        ],
+        whatToSay: [`Inside.`, `More.`, `Fold.`, `Ssss — cook.`, `Serve.`],
+        goal: `Notice differences in food and nature (sorting and choosing fillings)`,
+        ifNotReady: `parent holds the shell open while the child drops fillings in.`,
+        ifReadyForMore: `the child names each filling as it goes in.`,
+      },
+      {
+        name: `Smell It & Taste It`,
+        description: `Children smell and taste a real soft taco with their grown-up, meeting a new food gently.`,
+        setup: [
+          `A soft tortilla piece with a mild filling (grated cheese) per child — allergies checked`,
+          `Children smell it first, then have a little taste with their grown-up if they'd like`,
+          `Tasting is always optional — smelling and touching is a full turn`,
+        ],
+        whatToSay: [`Smell.`, `Mmm.`, `Taste.`, `Yummy.`],
+        goal: `Adapt to new tastes and smells`,
+        ifNotReady: `the child smells and touches the food; tasting is optional.`,
+        ifReadyForMore: `the child names one thing they can smell or taste.`,
+      },
+    ],
+    materials: [
+      `Soft coloured paper or tissue (yellow, green, red) for shredding`,
+      `Light-green soft playdough (the pretend guacamole), plus a few large wooden beads or smooth pebbles as "stones"`,
+      `Child-safe mashers or forks`,
+      `Folded felt taco shells`,
+      `Large felt vegetables and cheese strips (all bigger than a mouth)`,
+      `Small plates and bowls, wooden spoons, pretend pots and pans`,
+      `Dry polenta or cornmeal, squishy "tomatoes", foil/cellophane (for Free Play)`,
+      `Soft real tortilla pieces and a mild filling (grated cheese) for tasting — allergies checked first`,
+    ],
+  },
+  'Paw Patrol': {
+    overview: `An animal-tracks art studio where children make marks with different homemade tools — rolling bumpy tracks, stamping paw pads with cup rims, dotting claws with Q-tips, and walking animals through a muddy trail. Children's marks are left exactly as they make them.`,
+    bigGoals: `spot colours through hands-on play · try simple art tools · create lines, dots and patterns`,
+    freePlay: {
+      purpose: `To gently invite children into the space through the DIY tools and tactile materials before structured activities begin.`,
+      setup: [
+        `Set out the DIY rollers, cups, bottle caps, Q-tips and dry animal figures on paper — no paint yet`,
+        `Children handle the tools, roll them, and press them on the dry paper to feel the shapes`,
+        `Materials spread out neatly so children can choose what draws them in`,
+      ],
+      teacherModels: `The teacher slowly rolls a bumpy DIY roller across the paper, presses a cup rim down to leave a ring, and pauses. Parents watch first, copy once, then pause and let the child try.`,
+      whatToSay: [`Look.`, `Roll.`, `Bumpy.`, `Your turn.`],
+    },
+    activities: [
+      {
+        name: `Rolling Animal Tracks`,
+        description: `Children dip a DIY textured roller in paint and roll it across their paper to make long bumpy "tracks."`,
+        setup: [
+          `Trays of paint and the homemade textured rollers (bubble-wrap or yarn-wrapped tubes)`,
+          `One sheet of thick paper per child`,
+          `Children dip and push the roller — a big whole-arm movement — leaving continuous tracks`,
+        ],
+        whatToSay: [`Dip.`, `Roll.`, `Track.`, `Again.`],
+        goal: `Try simple art tools & create patterns`,
+        ifNotReady: `parent puts a hand over the child's to push the roller together.`,
+        ifReadyForMore: `the child rolls two different textured rollers and points to which tracks each one made.`,
+      },
+      {
+        name: `Paw Pads with Cup Rims`,
+        description: `Children dip cup rims and bottle caps in paint and stamp rings and circles to build up animal "paw pads."`,
+        setup: [
+          `Shallow plates of paint; plastic cups (dip the rim) and bottle caps (dip the open end) in a few sizes`,
+          `Children press the rim down to leave a ring, and caps for small pads, grouping them into paw shapes`,
+          `Wipe between colours`,
+        ],
+        whatToSay: [`Dip.`, `Press.`, `Ring.`, `Pad.`],
+        goal: `Try simple art tools & spot colours through hands-on play`,
+        ifNotReady: `parent holds the cup and the child presses it down together.`,
+        ifReadyForMore: `the child stamps a big pad and small toe pads around it to make a whole paw.`,
+      },
+      {
+        name: `Q-tip Claws & Spots`,
+        description: `Children use Q-tips to dot claws, spots and dotty fur onto and around their paw prints.`,
+        setup: [
+          `Small pots of paint and bundles of Q-tips (several rubber-banded together makes bold dot clusters; singles for fine dots)`,
+          `Children dab dots — sharp claws at the tips of pads, spots across the page`,
+          `Fresh Q-tips as needed`,
+        ],
+        whatToSay: [`Dot.`, `Claws.`, `Spots.`, `More.`],
+        goal: `Create lines, dots and patterns`,
+        ifNotReady: `parent guides one Q-tip to make a few dots.`,
+        ifReadyForMore: `the child makes a line of dots "walking" in one direction like a track.`,
+      },
+      {
+        name: `The Muddy Paw Trail (group)`,
+        description: `Children walk toy animals through paint and press them across a long shared "path," adding their own cup-rim and knuckle paw pads alongside to make one big muddy trail.`,
+        setup: [
+          `A long paper roll taped down the floor as the "path"`,
+          `Trays of brown/earthy paint at intervals; plastic animals to dip feet and "walk," plus cups and fingers for extra pads`,
+          `Children move along the roll adding tracks together; wipe station at the end`,
+        ],
+        whatToSay: [`Walk.`, `Muddy.`, `Tracks.`, `Together.`, `Stop.`],
+        goal: `Create lines, dots and patterns & spot colours through hands-on play`,
+        ifNotReady: `parent helps the child "walk" one animal a few steps along the path.`,
+        ifReadyForMore: `the child follows the trail to the end and names which animal made which tracks.`,
+      },
+    ],
+    materials: [
+      `Non-toxic, taste-safe washable paint`,
+      `Soft playdough (optional Free Play texture)`,
+      `DIY textured rollers — cardboard tubes or an old rolling pin wrapped in bubble wrap, or with chunky yarn/foam shapes glued on and banded (make in advance)`,
+      `Plastic cups and bottle caps (for stamping rims and circles)`,
+      `Q-tips / cotton buds (bundles and singles)`,
+      `Small plastic animal figures`,
+      `Low trays / shallow plates for paint`,
+      `Thick paper (one sheet per child)`,
+      `One long paper roll for the group trail`,
+      `Wipes, towel, smocks`,
+    ],
+  },
+  'The Tiger Who Came to Tea': {
+    overview: `A music and storytelling playdate built around a very hungry tiger and a special tea party. Children explore pouring, rhythm, pretend play, and movement through hands-on tea stations and crafting signature teacup shakers.`,
+    freePlay: {
+      purpose: `To gently invite children into music and storytelling through teatime props, tiger visuals, and simple sound-makers before structured activities begin.`,
+      setup: [
+        `Set up soft floor mats in a circle`,
+        `Provide a low table or mat set up with empty teapots, cups, soft play food, one tiger puppet, and one pre-made teacup shaker`,
+      ],
+      teacherModels: `The teacher sits and quietly pours from an empty teapot into a cup, picks up the teacup shaker, shakes it once, and takes a pretend sip. Parents watch first, copy once, then pause and allow the child to respond.`,
+      whatToSay: [`Pour.`, `Tea.`, `Shake.`, `Your turn.`],
+    },
+    activities: [
+      {
+        name: `Tiger's Tea Party (Water Pouring)`,
+        description: `Children pour water from small teapots into cups, exploring the sensory feel and the everyday sounds of a bustling tea party.`,
+        setup: [
+          `One shallow water tray per child, small teapots with water, plastic teacups, and towels underneath`,
+        ],
+        whatToSay: [`Pour.`, `Splash.`, `Full.`, `Again.`],
+        goal: `Copy everyday sounds`,
+      },
+      {
+        name: `Signature Instrument: Teacup Shakers`,
+        description: `Children scoop rice or beans into their teacups, seal them, and explore the new sounds they've created by shaking their "tea."`,
+        setup: [
+          `One teacup and lid per child, small bowls of dry rice, scoops, and tape to secure lids. Keep bowls half-filled so it doesn't spill instantly`,
+        ],
+        whatToSay: [`Scoop.`, `Fill.`, `Seal.`, `Shake.`, `Listen.`],
+        goal: `Make sounds and hear what happens`,
+      },
+      {
+        name: `Interactive Story with the Hungry Tiger`,
+        description: `Read the story while bringing the tiger puppet around the circle. Children use their new teacup shakers to make chomping, gulping, and drinking sounds every time the tiger eats or drinks.`,
+        setup: [
+          `The Tiger Who Came to Tea book, tiger puppet handled by the teacher, children holding shakers in a circle`,
+        ],
+        whatToSay: [`Tiger.`, `Hungry.`, `Eat.`, `Gulp.`, `Shake.`],
+        goal: `Sing and act familiar songs and rhymes`,
+      },
+      {
+        name: `Tiger Prowl and Freeze Dance`,
+        description: `Children move like tigers — creeping softly, stomping loudly, and freezing when the music stops, using their whole bodies to express the story.`,
+        setup: [
+          `Open movement space, speaker playing a playful prowling beat, parents standing beside their child`,
+        ],
+        whatToSay: [`Creep.`, `Soft.`, `Stomp.`, `Loud.`, `Freeze.`, `Again.`],
+        goal: `Sing and act familiar songs and rhymes`,
+      },
+    ],
+    materials: [
+      `The Tiger Who Came to Tea book`,
+      `Tiger hand puppet or soft toy`,
+      `Plastic or sturdy paper teacups with secure lids`,
+      `Dry rice or beans`,
+      `Scoops and small bowls`,
+      `Small, child-sized teapots or pouring jugs`,
+      `Shallow water trays and towels`,
+      `Soft play food (pretend cakes, buns, sandwiches)`,
+      `Floor mats`,
+      `Speaker for background music`,
+    ],
+  },
   'Dust & Swirl': {
     overview: 'An exploratory art session where toddlers discover textures through dust, powder, and swirling movements. Children use funnels, flour, and finger painting to create patterns and explore visual contrasts.',
     freePlay: {
