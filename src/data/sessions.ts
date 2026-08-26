@@ -168,12 +168,12 @@ export const JULY_2026_SESSIONS: Session[] = [
 ];
 
 export const AUGUST_2026_SESSIONS: Session[] = [
-  { id: 'au1', date: '2026-08-01', name: 'Butterfly Band', type: 'music' },
+  { id: 'au1', date: '2026-08-01', name: 'Butterfly Band', type: 'music', big: true },
   { id: 'au2', date: '2026-08-03', name: 'Little Garden', type: 'sensory' },
   { id: 'au3', date: '2026-08-04', name: 'Little Lamb Tunes', type: 'music' },
   { id: 'au4', date: '2026-08-05', name: 'Busy City Runners', type: 'movement' },
   { id: 'au5', date: '2026-08-06', name: 'Frost & Shine', type: 'art' },
-  { id: 'au6', date: '2026-08-08', name: 'Independence Day Playdate', type: 'special' },
+  { id: 'au6', date: '2026-08-08', name: 'Independence Day Playdate', type: 'special', big: true },
   { id: 'au7', date: '2026-08-10', name: 'Barnyard Beats', type: 'music' },
   { id: 'au8', date: '2026-08-11', name: 'Gumboot Stomp', type: 'movement' },
   { id: 'au9', date: '2026-08-12', name: 'Cupcake Dots', type: 'art' },
@@ -182,23 +182,24 @@ export const AUGUST_2026_SESSIONS: Session[] = [
   { id: 'au12', date: '2026-08-18', name: 'Mix It Up', type: 'art' },
   { id: 'au13', date: '2026-08-19', name: 'Petal Bloom Basket', type: 'sensory' },
   { id: 'au14', date: '2026-08-20', name: 'Tick Tock Mouse', type: 'music' },
-  { id: 'au15', date: '2026-08-22', name: 'The Very Messy Dino', type: 'art' },
+  { id: 'au15', date: '2026-08-22', name: 'The Very Messy Dino', type: 'art', big: true },
   { id: 'au16', date: '2026-08-24', name: 'Nature Press', type: 'art' },
   { id: 'au17', date: '2026-08-25', name: 'Soft Things Basket', type: 'sensory' },
   { id: 'au18', date: '2026-08-26', name: 'Ocean Beats', type: 'music' },
   { id: 'au19', date: '2026-08-27', name: 'Busy Builders', type: 'movement' },
-  { id: 'au20', date: '2026-08-29', name: 'Welcome to the Circus', type: 'movement' },
+  { id: 'au20', date: '2026-08-29', name: 'Welcome to the Circus', type: 'movement', big: true },
   { id: 'au21', date: '2026-08-31', name: 'Mixing Bowls', type: 'sensory' },
 ];
 
 // Fridays and Sundays are holidays (absent). Mon 14 Sep is also a holiday
-// (day after Ganesh Chaturthi). Alternate Saturdays are BIG playdates:
-// Ganesh Chaturthi (12th) and Taco Tuesday (26th).
+// (day after Ganesh Chaturthi). For now, EVERY Saturday is a BIG playdate
+// (5th Penguin Waddles, 12th Ganesh Chaturthi, 19th The Tiger Who Came to
+// Tea, 26th Taco Kitchen).
 export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp1', date: '2026-09-01', name: 'Frost & Shine', type: 'art' },
   { id: 'sp2', date: '2026-09-02', name: 'Sand Dune Scoop', type: 'sensory' },
   { id: 'sp3', date: '2026-09-03', name: 'Barnyard Beats', type: 'music' },
-  { id: 'sp4', date: '2026-09-05', name: 'Penguin Waddles', type: 'movement' },
+  { id: 'sp4', date: '2026-09-05', name: 'Penguin Waddles', type: 'movement', big: true },
   { id: 'sp5', date: '2026-09-07', name: 'Cupcake Dots', type: 'art' },
   { id: 'sp6', date: '2026-09-08', name: 'Petal Bloom Basket', type: 'sensory' },
   { id: 'sp7', date: '2026-09-09', name: 'Gumboot Stomp', type: 'movement' },
@@ -207,12 +208,12 @@ export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp10', date: '2026-09-15', name: 'Paw Patrol', type: 'art' },
   { id: 'sp11', date: '2026-09-16', name: 'Sand Dune Scoop', type: 'sensory' },
   { id: 'sp12', date: '2026-09-17', name: 'Penguin Waddles', type: 'movement' },
-  { id: 'sp13', date: '2026-09-19', name: 'The Tiger Who Came to Tea', type: 'music' },
+  { id: 'sp13', date: '2026-09-19', name: 'The Tiger Who Came to Tea', type: 'music', big: true },
   { id: 'sp14', date: '2026-09-21', name: 'Frost & Shine', type: 'art' },
   { id: 'sp15', date: '2026-09-22', name: 'Petal Bloom Basket', type: 'sensory' },
   { id: 'sp16', date: '2026-09-23', name: 'Barnyard Beats', type: 'music' },
   { id: 'sp17', date: '2026-09-24', name: 'Gumboot Stomp', type: 'movement' },
-  { id: 'sp18', date: '2026-09-26', name: 'Taco Tuesday', type: 'sensory', big: true },
+  { id: 'sp18', date: '2026-09-26', name: 'Taco Kitchen', type: 'sensory', big: true },
   { id: 'sp19', date: '2026-09-28', name: 'Cupcake Dots', type: 'art' },
   { id: 'sp20', date: '2026-09-29', name: 'Sand Dune Scoop', type: 'sensory' },
   { id: 'sp21', date: '2026-09-30', name: 'Barnyard Beats', type: 'music' },
@@ -916,7 +917,7 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
       `Icy-world touch materials for Free Play (white fleece "snow", crinkly foil "ice", smooth blue satin "sea", a sealed cold water bottle)`,
     ],
   },
-  'Taco Tuesday': {
+  'Taco Kitchen': {
     overview: `A taco-kitchen sensory session moving through four different textures and senses — shredding the fillings, mashing pretend guacamole, building the taco, then smelling and tasting a real one. No child is ever pushed to touch or taste.`,
     bigGoals: `adapt to new tastes and smells · explore different textures · notice differences in food and nature`,
     freePlay: {
