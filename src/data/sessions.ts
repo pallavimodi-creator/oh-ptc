@@ -168,12 +168,12 @@ export const JULY_2026_SESSIONS: Session[] = [
 ];
 
 export const AUGUST_2026_SESSIONS: Session[] = [
-  { id: 'au1', date: '2026-08-01', name: 'Butterfly Band', type: 'music', big: true },
+  { id: 'au1', date: '2026-08-01', name: 'Butterfly Band', type: 'music' },
   { id: 'au2', date: '2026-08-03', name: 'Little Garden', type: 'sensory' },
   { id: 'au3', date: '2026-08-04', name: 'Little Lamb Tunes', type: 'music' },
   { id: 'au4', date: '2026-08-05', name: 'Busy City Runners', type: 'movement' },
   { id: 'au5', date: '2026-08-06', name: 'Frost & Shine', type: 'art' },
-  { id: 'au6', date: '2026-08-08', name: 'Independence Day Playdate', type: 'special', big: true },
+  { id: 'au6', date: '2026-08-08', name: 'Independence Day Playdate', type: 'special' },
   { id: 'au7', date: '2026-08-10', name: 'Barnyard Beats', type: 'music' },
   { id: 'au8', date: '2026-08-11', name: 'Gumboot Stomp', type: 'movement' },
   { id: 'au9', date: '2026-08-12', name: 'Cupcake Dots', type: 'art' },
@@ -182,12 +182,12 @@ export const AUGUST_2026_SESSIONS: Session[] = [
   { id: 'au12', date: '2026-08-18', name: 'Mix It Up', type: 'art' },
   { id: 'au13', date: '2026-08-19', name: 'Petal Bloom Basket', type: 'sensory' },
   { id: 'au14', date: '2026-08-20', name: 'Tick Tock Mouse', type: 'music' },
-  { id: 'au15', date: '2026-08-22', name: 'The Very Messy Dino', type: 'art', big: true },
+  { id: 'au15', date: '2026-08-22', name: 'The Very Messy Dino', type: 'art' },
   { id: 'au16', date: '2026-08-24', name: 'Nature Press', type: 'art' },
   { id: 'au17', date: '2026-08-25', name: 'Soft Things Basket', type: 'sensory' },
   { id: 'au18', date: '2026-08-26', name: 'Ocean Beats', type: 'music' },
   { id: 'au19', date: '2026-08-27', name: 'Busy Builders', type: 'movement' },
-  { id: 'au20', date: '2026-08-29', name: 'Welcome to the Circus', type: 'movement', big: true },
+  { id: 'au20', date: '2026-08-29', name: 'Welcome to the Circus', type: 'movement' },
   { id: 'au21', date: '2026-08-31', name: 'Mixing Bowls', type: 'sensory' },
 ];
 
