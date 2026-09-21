@@ -194,7 +194,7 @@ export const AUGUST_2026_SESSIONS: Session[] = [
 // Fridays and Sundays are holidays (absent). Mon 14 Sep is also a holiday
 // (day after Ganesh Chaturthi). For now, EVERY Saturday is a BIG playdate
 // (5th Penguin Waddles, 12th Ganesh Chaturthi, 19th The Tiger Who Came to
-// Tea, 26th Taco Kitchen).
+// Tea, 26th Taco Party Playdate).
 export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp1', date: '2026-09-01', name: 'Frost & Shine', type: 'art' },
   { id: 'sp2', date: '2026-09-02', name: 'Sand Dune Scoop', type: 'sensory' },
@@ -213,7 +213,7 @@ export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp15', date: '2026-09-22', name: 'Petal Bloom Basket', type: 'sensory' },
   { id: 'sp16', date: '2026-09-23', name: 'Barnyard Beats', type: 'music' },
   { id: 'sp17', date: '2026-09-24', name: 'Gumboot Stomp', type: 'movement' },
-  { id: 'sp18', date: '2026-09-26', name: 'Taco Kitchen', type: 'sensory', big: true },
+  { id: 'sp18', date: '2026-09-26', name: 'Taco Party Playdate', type: 'sensory', big: true },
   { id: 'sp19', date: '2026-09-28', name: 'Cupcake Dots', type: 'art' },
   { id: 'sp20', date: '2026-09-29', name: 'Sand Dune Scoop', type: 'sensory' },
   { id: 'sp21', date: '2026-09-30', name: 'Barnyard Beats', type: 'music' },
@@ -917,9 +917,9 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
       `Icy-world touch materials for Free Play (white fleece "snow", crinkly foil "ice", smooth blue satin "sea", a sealed cold water bottle)`,
     ],
   },
-  'Taco Kitchen': {
-    overview: `A taco-kitchen sensory session moving through four different textures and senses — shredding the fillings, mashing pretend guacamole, building the taco, then smelling and tasting a real one. No child is ever pushed to touch or taste.`,
-    bigGoals: `adapt to new tastes and smells · explore different textures · notice differences in food and nature`,
+  'Taco Party Playdate': {
+    overview: `A hands-on taco party where children make colourful fillings, mash pretend guacamole, decorate their own tacos and create bright Spanish hats. Tear, squish, scoop, stick and decorate through a playful little fiesta.`,
+    bigGoals: `explore different textures · sort and choose colours · decorate and create with shapes and patterns`,
     freePlay: {
       purpose: `To gently invite children into the taco kitchen through lots of different textures and pretend cooking before structured activities begin.`,
       setup: [
@@ -936,8 +936,8 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
     },
     activities: [
       {
-        name: `Shred the Fillings`,
-        description: `Children tear and shred soft coloured paper into "lettuce and cheese" to fill their taco.`,
+        name: `Make Colourful Taco Fillings`,
+        description: `Rip and tear colourful paper into lettuce, cheese and other taco fillings. Sort them into bowls and get the taco kitchen ready!`,
         setup: [
           `Pre-snip the edges of each sheet so it tears easily`,
           `Children pull and shred strips into their bowl — yellow "cheese", green "lettuce"`,
@@ -949,8 +949,8 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
         ifReadyForMore: `the child shreds into two separate colour piles.`,
       },
       {
-        name: `Mash the Guacamole`,
-        description: `Children mash and squish soft light-green dough into pretend guacamole, pulling out the "stones" first and spreading it smooth for their taco.`,
+        name: `Pretend Guacamole`,
+        description: `Mash and squish soft green dough to make pretend guacamole. Find the hidden "avocado stones", scoop them out and mix it all up.`,
         setup: [
           `A ball of soft light-green dough per child on an individual mat, with a small bowl and a child-safe masher or fork`,
           `Hide two or three "stones" (large wooden beads or smooth pebbles, all bigger than a mouth) in each ball to find and pull out first`,
@@ -963,41 +963,42 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
         ifReadyForMore: `the child mashes until fully smooth, then scoops a spoonful into their taco shell.`,
       },
       {
-        name: `Build Your Taco`,
-        description: `Children place their shredded fillings, guacamole and felt vegetables inside the folded taco shell and load it up, serving it on a plate.`,
+        name: `Taco Decoration`,
+        description: `Pick your fillings and decorate your taco. Add lettuce, cheese and guacamole, then fold it up to make your own colourful taco creation.`,
         setup: [
           `Felt taco shells, plates, and all the gathered fillings`,
-          `Children choose fillings, put them inside, and fold the shell over — a light "ssss" cooking sound as it goes on the plate to "warm through"`,
+          `Children choose their fillings, add them inside and fold the shell over into their own taco creation`,
           `Fillings all larger than a mouth`,
         ],
-        whatToSay: [`Inside.`, `More.`, `Fold.`, `Ssss — cook.`, `Serve.`],
+        whatToSay: [`Pick.`, `Add.`, `Fold.`, `Yours!`],
         goal: `Notice differences in food and nature (sorting and choosing fillings)`,
         ifNotReady: `parent holds the shell open while the child drops fillings in.`,
         ifReadyForMore: `the child names each filling as it goes in.`,
       },
       {
-        name: `Smell It & Taste It`,
-        description: `Children smell and taste a real soft taco with their grown-up, meeting a new food gently.`,
+        name: `Spanish Hats`,
+        description: `Decorate a bright fiesta hat with colourful shapes, patterns and stickers. Add your own details, put it on and get ready for the taco party!`,
         setup: [
-          `A soft tortilla piece with a mild filling (grated cheese) per child — allergies checked`,
-          `Children smell it first, then have a little taste with their grown-up if they'd like`,
-          `Tasting is always optional — smelling and touching is a full turn`,
+          `A plain bright fiesta hat (a paper cone or party hat) per child`,
+          `Bowls of colourful paper shapes, patterns and easy-peel stickers to choose from`,
+          `Children stick and decorate, then pop the hat on when they're done`,
+          `All pieces larger than a mouth; a little glue dot or tape ready for grown-ups`,
         ],
-        whatToSay: [`Smell.`, `Mmm.`, `Taste.`, `Yummy.`],
-        goal: `Adapt to new tastes and smells`,
-        ifNotReady: `the child smells and touches the food; tasting is optional.`,
-        ifReadyForMore: `the child names one thing they can smell or taste.`,
+        whatToSay: [`Stick.`, `Pattern.`, `Colour.`, `Wear it!`],
+        goal: `Decorate and create with colours, shapes and patterns`,
+        ifNotReady: `parent peels the stickers and the child presses them on wherever they like.`,
+        ifReadyForMore: `the child makes a repeating pattern or names the shapes and colours.`,
       },
     ],
     materials: [
-      `Soft coloured paper or tissue (yellow, green, red) for shredding`,
-      `Light-green soft playdough (the pretend guacamole), plus a few large wooden beads or smooth pebbles as "stones"`,
+      `Soft coloured paper or tissue (yellow, green, red) for tearing into fillings`,
+      `Light-green soft playdough (the pretend guacamole), plus a few large wooden beads or smooth pebbles as "avocado stones", and a small spoon/scoop`,
       `Child-safe mashers or forks`,
       `Folded felt taco shells`,
       `Large felt vegetables and cheese strips (all bigger than a mouth)`,
       `Small plates and bowls, wooden spoons, pretend pots and pans`,
       `Dry polenta or cornmeal, squishy "tomatoes", foil/cellophane (for Free Play)`,
-      `Soft real tortilla pieces and a mild filling (grated cheese) for tasting — allergies checked first`,
+      `Plain bright fiesta hats (paper cones or party hats), plus colourful paper shapes, patterns and easy-peel stickers to decorate`,
     ],
   },
   'Paw Patrol': {
