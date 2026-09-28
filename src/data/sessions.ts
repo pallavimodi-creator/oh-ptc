@@ -230,17 +230,17 @@ export const OCTOBER_2026_SESSIONS: Session[] = [
   { id: 'oc8', date: '2026-10-12', name: 'Digging Day', type: 'sensory' },
   { id: 'oc9', date: '2026-10-13', name: 'Brown Bear Beats', type: 'music' },
   { id: 'oc10', date: '2026-10-14', name: 'Fly High', type: 'movement' },
-  { id: 'oc11', date: '2026-10-15', name: 'Buttery Fly Band', type: 'music' },
-  { id: 'oc12', date: '2026-10-17', name: 'Navratri Special', type: 'special' },
+  { id: 'oc11', date: '2026-10-15', name: 'Butterfly Band', type: 'music' },
+  { id: 'oc12', date: '2026-10-17', name: 'Navratri Special', type: 'special', big: true },
   { id: 'oc13', date: '2026-10-19', name: 'The Very Messy Dino', type: 'sensory' },
   { id: 'oc14', date: '2026-10-20', name: 'Little Print Makers', type: 'art' },
   { id: 'oc15', date: '2026-10-22', name: 'Tick Tock Mouse', type: 'music' },
   { id: 'oc16', date: '2026-10-24', name: 'Cupcake Dots', type: 'art' },
-  { id: 'oc17', date: '2026-10-26', name: 'Taco Kitchen', type: 'sensory' },
+  { id: 'oc17', date: '2026-10-26', name: 'Taco Party Playdate', type: 'sensory' },
   { id: 'oc18', date: '2026-10-27', name: 'Digging Day', type: 'sensory' },
   { id: 'oc19', date: '2026-10-28', name: 'Brown Bear Beats', type: 'music' },
   { id: 'oc20', date: '2026-10-29', name: 'Fly High', type: 'movement' },
-  { id: 'oc21', date: '2026-10-31', name: 'Halloween Special', type: 'special' },
+  { id: 'oc21', date: '2026-10-31', name: 'Halloween Special', type: 'special', big: true },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────
