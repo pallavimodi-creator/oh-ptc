@@ -219,6 +219,30 @@ export const SEPTEMBER_2026_SESSIONS: Session[] = [
   { id: 'sp21', date: '2026-09-30', name: 'Barnyard Beats', type: 'music' },
 ];
 
+export const OCTOBER_2026_SESSIONS: Session[] = [
+  { id: 'oc1', date: '2026-10-01', name: 'Ocean Beats', type: 'music' },
+  { id: 'oc2', date: '2026-10-03', name: 'Stars & Moon', type: 'art' },
+  { id: 'oc3', date: '2026-10-05', name: 'The Very Messy Dino', type: 'sensory' },
+  { id: 'oc4', date: '2026-10-06', name: 'Little Print Makers', type: 'art' },
+  { id: 'oc5', date: '2026-10-07', name: 'Tunnel Adventure', type: 'movement' },
+  { id: 'oc6', date: '2026-10-08', name: 'Tick Tock Mouse', type: 'music' },
+  { id: 'oc7', date: '2026-10-10', name: 'Rainbow Swirl', type: 'special' },
+  { id: 'oc8', date: '2026-10-12', name: 'Digging Day', type: 'sensory' },
+  { id: 'oc9', date: '2026-10-13', name: 'Brown Bear Beats', type: 'music' },
+  { id: 'oc10', date: '2026-10-14', name: 'Fly High', type: 'movement' },
+  { id: 'oc11', date: '2026-10-15', name: 'Buttery Fly Band', type: 'music' },
+  { id: 'oc12', date: '2026-10-17', name: 'Navratri Special', type: 'special' },
+  { id: 'oc13', date: '2026-10-19', name: 'The Very Messy Dino', type: 'sensory' },
+  { id: 'oc14', date: '2026-10-20', name: 'Little Print Makers', type: 'art' },
+  { id: 'oc15', date: '2026-10-22', name: 'Tick Tock Mouse', type: 'music' },
+  { id: 'oc16', date: '2026-10-24', name: 'Cupcake Dots', type: 'art' },
+  { id: 'oc17', date: '2026-10-26', name: 'Taco Kitchen', type: 'sensory' },
+  { id: 'oc18', date: '2026-10-27', name: 'Digging Day', type: 'sensory' },
+  { id: 'oc19', date: '2026-10-28', name: 'Brown Bear Beats', type: 'music' },
+  { id: 'oc20', date: '2026-10-29', name: 'Fly High', type: 'movement' },
+  { id: 'oc21', date: '2026-10-31', name: 'Halloween Special', type: 'special' },
+];
+
 // ─────────────────────────────────────────────────────────────────────────
 // Adding a month? Add its *_SESSIONS array, register it in BOTH maps below,
 // and append it to BASELINE_MONTHS in sessions.integrity.test.ts.
@@ -235,6 +259,7 @@ export const ALL_SESSIONS: Record<string, Session[]> = {
   'July 2026': JULY_2026_SESSIONS,
   'August 2026': AUGUST_2026_SESSIONS,
   'September 2026': SEPTEMBER_2026_SESSIONS,
+  'October 2026': OCTOBER_2026_SESSIONS,
 };
 
 export const AVAILABLE_MONTHS = [
@@ -246,6 +271,7 @@ export const AVAILABLE_MONTHS = [
   'July 2026',
   'August 2026',
   'September 2026',
+  'October 2026',
 ];
 
 export interface SessionActivity {
