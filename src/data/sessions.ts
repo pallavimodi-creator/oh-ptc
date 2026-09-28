@@ -302,6 +302,104 @@ export interface SessionPlan {
 }
 
 export const SESSION_PLANS: Record<string, SessionPlan> = {
+  'Little Print Makers': {
+    overview: 'A hands-on print studio where marks come alive. Children sort and place colours, squeeze and spray soapy colour, press and pop bubble-wrap prints, and paint big inside a hoop — exploring how tools, textures and movement all leave their own kind of mark on paper. A first, joyful taste of making prints with the whole hand and the whole arm.',
+    bigGoals: [
+      'Explore mark-making with many tools and textures — fingers, tweezers, sprays, bubble wrap, big brushes',
+      'Notice colour — sorting, mixing and watching colours spread and overlap',
+      'Build the fine-motor pincer grip and the big-arm movements that early drawing and writing grow from',
+    ],
+    freePlay: {
+      purpose: 'To let children touch the tools and colours freely and make their first marks before the guided stations begin.',
+      setup: [
+        'One low table with big paper taped down and a few fat crayons, pom poms and a colour tray',
+        'A small tray of pom poms in mixed colours to squish and drop',
+        'Aprons on, sleeves up, a wipe cloth nearby',
+        'One bowl of soapy coloured water with a sponge, for children who want to dip and dab',
+      ],
+      teacherModels: 'The educator sits down, picks up a pom pom and drops it into a matching-colour cup, then makes one big happy mark on the paper with a sponge — showing "sort" and "make a mark" with a smile. Parents copy once, then let the child explore whichever tool draws them in.',
+      whatToSay: ['Pick a colour.', 'Squish it.', 'Make a mark.', 'Ooh, look!', 'Your turn.'],
+    },
+    activities: [
+      {
+        name: 'Pick & Place Colour Table',
+        description: 'Part 1 — sort by colour: Child picks up pom poms and coloured ice-cream sticks and places them onto matching colour patches taped on the table, using fingers or child tweezers. Part 2 — sort together: Parent names a colour and the child finds it, then they swap — the child names a colour for the parent to find, taking turns as the "caller".',
+        setup: [
+          'A table taped into coloured zones (red, yellow, blue, green)',
+          'A basket of pom poms and coloured ice-cream sticks',
+          'Child-safe tweezers or tongs',
+        ],
+        whatToSay: ['Pick it up.', 'Which colour?', 'Same colour — put it here.', 'Now you find red!'],
+        goal: 'Build the pincer grip and colour-matching, and practise turn-taking with a parent',
+        ifNotReady: 'Let the child use fingers instead of tweezers, and sort just one or two colours.',
+        ifReadyForMore: 'Count how many pom poms land in each colour zone.',
+      },
+      {
+        name: 'Squeeze & Spray Colour Mat',
+        description: 'Part 1 — squeeze and spray: Child squeezes bottles and spritzes sprays of red, yellow and blue soapy water onto a big mat, watching bubbles form. Part 2 — watch colours meet: Parent and child spray two colours close together and watch them slide, spread and overlap — noticing where a new colour appears where they touch.',
+        setup: [
+          'A large wipe-clean mat or laminated sheet',
+          'Squeezy bottles and small spray bottles of red, yellow and blue soapy water',
+          'A towel under the mat and aprons on',
+        ],
+        whatToSay: ['Squeeze!', 'Spray, spray.', 'Bubbles!', 'Watch them slide.', 'Look — a new colour!'],
+        goal: 'Strengthen hand and finger muscles through squeezing and spraying, and discover colours mixing where they overlap',
+        ifNotReady: 'Use only squeezy bottles (easier than sprays) and one colour at a time.',
+        ifReadyForMore: 'Guess what colour red + yellow will make before you spray them together.',
+      },
+      {
+        name: 'Bubble-Wrap Print Popping',
+        description: 'Part 1 — paint and press: Child paints a piece of bubble wrap, turns it over onto paper and presses with flat hands to leave a dotted, textured print. Part 2 — pop it: Parent and child lift the wrap to reveal the print, then pop the bubbles together with fingers or a roller — feeling and hearing each little pop.',
+        setup: [
+          'Pre-cut bubble-wrap pieces (large-bubble wrap works best)',
+          'Trays of thick paint and fat brushes or sponges',
+          'Sheets of paper laid out for printing',
+        ],
+        whatToSay: ['Paint it.', 'Press down flat.', 'Lift… look, dots!', 'Now pop them!', 'Pop pop pop!'],
+        goal: 'Explore texture printing and cause-and-effect, and enjoy the tactile, sound-rich popping together',
+        ifNotReady: 'Skip the paint at first — just press clean wrap and pop it to get used to the texture.',
+        ifReadyForMore: 'Print two colours on one sheet and see how the dots overlap.',
+      },
+      {
+        name: 'Roll-a-Ball Tracks (something new!)',
+        description: 'A brand-new way to make a mark — with movement, not a brush. Part 1 — drop and tilt: Paper is laid inside a shallow box or tray lid; the child drops in a paint-dipped ball and tilts the tray so the ball rolls, leaving winding painted tracks behind it. Part 2 — roll together: Parent and child hold the tray together and tip it side to side, watching the ball criss-cross and the lines cross over — a first look at how moving makes a line.',
+        setup: [
+          'Shallow box lids or trays, one per child, with paper cut to fit inside',
+          'A bowl of paint with balls (ping-pong or small plastic balls) dipped in',
+          'Spoons to lift the balls in and out, and a wipe cloth',
+        ],
+        whatToSay: ['Drop the ball in.', 'Now tilt it!', 'Watch it roll.', 'It made a line!', 'Tip it back — again!'],
+        goal: 'Discover that movement leaves a mark, and build the whole-arm control behind big, sweeping lines',
+        ifNotReady: 'The adult holds the tray and does the tilting while the child just watches the ball roll.',
+        ifReadyForMore: 'Add a second colour ball and see the two tracks tangle together.',
+      },
+      {
+        name: 'Paint Inside the Hoop',
+        description: 'A big-movement finish. Part 1 — paint the circle: A hula hoop is placed on a large sheet of paper as a boundary, and the child paints only inside the circle using big, sweeping arm movements. Part 2 — fill it together: Parent and child paint side by side inside the same hoop, making a shared circle full of colour, then lift the hoop to reveal a perfect painted ring.',
+        setup: [
+          'A hula hoop laid on a large sheet of paper on the floor',
+          'Trays of paint and fat brushes or sponge dabbers',
+          'A big splash mat under the paper, aprons on',
+        ],
+        whatToSay: ['Stay inside the circle.', 'Big arms — swish!', 'Fill it up.', 'Lift the hoop… a circle!'],
+        goal: 'Practise big-arm gross-motor painting and staying within a boundary, and enjoy a shared, whole-body finish',
+        ifNotReady: 'Use a smaller hoop or plate so the boundary is easier to stay inside.',
+        ifReadyForMore: 'Move the hoop to a fresh spot and make a second circle in a new colour.',
+      },
+    ],
+    materials: [
+      'Painter\'s tape (to mark colour zones) and large sheets of paper',
+      'Pom poms and coloured ice-cream/craft sticks in red, yellow, blue, green',
+      'Child-safe tweezers or tongs',
+      'Squeezy bottles and small spray bottles + red, yellow, blue soapy water',
+      'A large wipe-clean mat or laminated sheet',
+      'Bubble wrap (large-bubble) pre-cut into pieces',
+      'Thick paint, fat brushes, sponges and sponge dabbers',
+      'Shallow box lids/trays + small balls (ping-pong or plastic) for roll-a-ball prints',
+      'A hula hoop (one or two)',
+      'Splash mats, aprons, towels and wipes',
+    ],
+  },
   'Digging Day': {
     overview: 'A full muddy build-and-splash sensory day. Children dig in earth, meet wriggly worms, turn dry soil into flowing mud, bake mud cakes in a little mud kitchen, and finish by washing everything clean — with clean-up folded right into the play. A whole-body, hands-in-the-earth day about how mud is made, how it moves, and how it washes away.',
     bigGoals: [
