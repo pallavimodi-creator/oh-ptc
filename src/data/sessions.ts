@@ -302,6 +302,106 @@ export interface SessionPlan {
 }
 
 export const SESSION_PLANS: Record<string, SessionPlan> = {
+  'Digging Day': {
+    overview: 'A full muddy build-and-splash sensory day. Children dig in earth, meet wriggly worms, turn dry soil into flowing mud, bake mud cakes in a little mud kitchen, and finish by washing everything clean — with clean-up folded right into the play. A whole-body, hands-in-the-earth day about how mud is made, how it moves, and how it washes away.',
+    bigGoals: [
+      'Rich full-hand tactile play across dry, damp, wet and washed textures',
+      'Cause-and-effect discovery — dry soil + water = mud; mud + water = it flows and pours',
+      'Shared parent-and-child play, with turn-taking and side-by-side building',
+    ],
+    freePlay: {
+      purpose: 'To let children warm up to the earth on their own terms — some dive straight in, some watch first — before the guided activities begin.',
+      setup: [
+        'One low tray of dry, crumbly soil open on the mat with scoops, cups and a few small stones',
+        'A second tray with a little damp soil beside it, so children can feel the difference',
+        'Aprons on, sleeves up, a towel under each tray',
+        'A small watering can of water set to one side (adult holds it for now)',
+      ],
+      teacherModels: 'The educator sits down at the tray first, scoops a little dry soil, lets it fall through their fingers, then wets a small patch and squishes it — showing "dry" and "wet" with their hands and a happy face. Parents copy once, then pause and let the child lead the digging.',
+      whatToSay: ['Dig.', 'Feel it.', 'Dry… now wet.', 'Squish!', 'Your turn.'],
+    },
+    activities: [
+      {
+        name: 'Two Mud Bins — Diggers & Worms',
+        description: 'Part 1 — the construction site: Child scoops and digs in the dry Construction Site bin, loading soil and stones into trucks and tipping them out. Part 2 — meet the worms: Parent and child move to the Mud & Worms bin, gently digging through damp soil to find the soft "worms," picking them up and dropping them into a bowl together, taking turns to hide and find one.',
+        setup: [
+          'Bin 1 — Construction Site: dry soil, small toy diggers/trucks, a few smooth stones, scoops',
+          'Bin 2 — Mud & Worms: damp soil with cooked noodles or soft string "worms" tucked inside, plus small bowls',
+          'A towel or mat under each bin',
+        ],
+        whatToSay: ['Dig and load.', 'Tip it out!', 'Find a worm.', 'Soft and wiggly!', 'Drop it in the bowl.'],
+        goal: 'Build scooping and grip strength, and gentle tactile courage handling soft, unfamiliar textures',
+        ifNotReady: 'Let the child use a scoop or spoon instead of bare hands to lift the worms.',
+        ifReadyForMore: 'Count the worms into the bowl together, one by one.',
+      },
+      {
+        name: 'Mud Flow & Mud Art',
+        description: 'Part 1 — make the mud: Child pours a little water onto the dry soil and stirs, watching it turn from powder into thick mud. Part 2 — make it flow: Parent and child scoop, pour and smear the mud through crinkled foil "river channels" and onto a big piece of cardboard, watching how it flows, pools, spreads and changes shape.',
+        setup: [
+          'A tray of dry soil, a small jug of water, and big spoons',
+          'Lengths of crinkled foil bent into open "river channels", propped on a slight slope',
+          'A large piece of flat cardboard as the mud-art canvas',
+        ],
+        whatToSay: ['Add water.', 'Stir, stir.', 'Now it flows!', 'Watch it run down.', 'Smear it here.'],
+        goal: 'Discover that adding water changes soil into mud, and explore how a liquid flows, pools and spreads',
+        ifNotReady: 'Do the pouring for the child and let them just watch and touch the moving mud.',
+        ifReadyForMore: 'Tilt the channel higher and lower — does the mud run faster or slower?',
+      },
+      {
+        name: 'Mud Kitchen Bakery',
+        description: 'Part 1 — mix and fill: Child spoons mud into muffin trays and bowls, filling each cup to make "cakes" and "pies." Part 2 — bake together: Parent and child decorate their mud cakes with stones, leaves and petals, then "serve" them to each other in a pretend little bakery, taking turns to be the baker and the customer.',
+        setup: [
+          'Muffin trays, small bowls, cupcake liners, spoons and scoops',
+          'A bowl of ready-mixed mud',
+          'A basket of loose decorations — smooth stones, leaves, flower petals, twigs',
+        ],
+        whatToSay: ['Scoop the mud.', 'Fill it up.', 'Pat the top.', 'Add a stone.', 'One for you!'],
+        goal: 'Practise filling, transferring and pretend play, and build shared imaginative role-play with a parent',
+        ifNotReady: 'Keep it to filling and emptying the cups — the decorating can wait.',
+        ifReadyForMore: 'Make a whole "birthday cake" and sing together before you serve it.',
+      },
+      {
+        name: 'Mud Rain Shower (something new!)',
+        description: 'A brand-new splashy finish before the wash. Part 1 — make it rain: The adult holds a colander or sieve up high while the child pours cups of runny, muddy water into it — and everyone watches the "mud rain" shower down into a big tub below. Part 2 — feel the rain: Parent and child hold their hands under the falling mud rain, feeling the soft splashes, then gently pat the puddle it makes in the tub. A first, safe taste of "weather" made with their own hands.',
+        setup: [
+          'A large low tub or paddling tray to catch the "rain"',
+          'A colander or sieve, held up high by an adult',
+          'Jugs and cups of thin, runny muddy water',
+          'A splash mat all around, aprons well fastened',
+        ],
+        whatToSay: ['Pour it in the top.', 'Look — mud rain!', 'Hands out… splash!', 'Pitter-patter.', 'Pat the puddle.'],
+        goal: 'A joyful cause-and-effect and whole-body sensory finish — pouring makes the "rain", and the rain can be felt and heard',
+        ifNotReady: 'Let the child just watch the mud rain fall before putting their hands under it.',
+        ifReadyForMore: 'Try a big cup then a tiny trickle — is it a heavy rain or a light one?',
+      },
+      {
+        name: 'Wash Station Finish',
+        description: 'Clean-up becomes the last game. Part 1 — rinse: Child carries the muddy toys, trucks and mud-kitchen cups to the wash tub and swishes them clean in the water. Part 2 — wipe and dry: Parent and child wipe each toy with a cloth and line them up to dry together, and give their own muddy hands a big wash at the end.',
+        setup: [
+          'A tub of clean, warm-ish water with a little safe soap',
+          'Sponges, cloths and a small scrubbing brush',
+          'A towel laid out as the "drying line" for clean toys',
+        ],
+        whatToSay: ['Into the water.', 'Swish, swish.', 'Wipe it clean.', 'Line them up.', 'Wash your hands!'],
+        goal: 'Fold clean-up into the play, and practise the self-care sequence of washing, wiping and tidying together',
+        ifNotReady: 'Let the child simply splash and swish in the wash tub — the cleaning will follow.',
+        ifReadyForMore: 'Sort the clean toys from the still-muddy ones as you go.',
+      },
+    ],
+    materials: [
+      'Two low bins/tubs (Construction Site + Mud & Worms)',
+      'Dry, crumbly soil and damp soil (clean, child-safe potting or garden soil)',
+      'Cooked noodles or soft string for "worms"',
+      'Small toy diggers, trucks and smooth stones',
+      'Scoops, spoons, cups, small bowls and jugs',
+      'Water (in jugs, cans and a colander/sieve for the mud rain)',
+      'Crinkled foil for "river channels" + a large flat cardboard mud-art canvas',
+      'Muffin trays, cupcake liners and a basket of loose decorations (stones, leaves, petals, twigs)',
+      'A large low tub / paddling tray (for the mud rain + wash station)',
+      'A wash tub with warm-ish water + a little safe soap, sponges, cloths, a small brush',
+      'Aprons, splash mats, towels and wipes',
+    ],
+  },
   // --- August plans ported from ~/oh-ptc (source of truth for these) ---
   'Butterfly Band': {
     overview: 'A musical bug world where children make sounds, shake and flutter — following a little caterpillar as it munches, curls into a cocoon, and floats away as a butterfly, all through hands-on music and play.',
