@@ -299,9 +299,420 @@ export interface SessionPlan {
   };
   activities: SessionActivity[];
   materials: string[];
+  // Optional multi-age variants (e.g. Navratri / Halloween). When present, the
+  // plan page shows an age-band toggle; each band has its own overview /
+  // activities / materials. For these plans the top-level overview/activities/
+  // materials act as a fallback only (the toggle drives what is shown).
+  ageBands?: AgeBand[];
+}
+
+export interface AgeBand {
+  band: string;   // key, e.g. "1-3"
+  label: string;  // shown on the toggle, e.g. "ages 1–3"
+  overview: string;
+  bigGoals?: string;
+  activities: SessionActivity[];
+  materials: string[];
 }
 
 export const SESSION_PLANS: Record<string, SessionPlan> = {
+  'Navratri Special': {
+    overview: 'Navratri Playdate — flowers, colours, dress up and a big family garba. Use the age toggle for the ages 1–3 and ages 3–5 versions.',
+    activities: [],
+    materials: [],
+    ageBands: [
+      {
+        band: '1-3',
+        label: 'ages 1–3',
+        overview: 'Navratri Playdate · ages 1–3 (parent-paired, 1 hour). Settle in with a flower urli, sing two garba songs, paint a photo frame, mix a coconut-jaggery snack, and dance garba together.',
+        bigGoals: 'decorate · eat · dance',
+        activities: [
+          {
+            name: 'Flower Urli Decoration (0–8 min)',
+            description: 'Urlis with water at a low table near the entrance, baskets of whole flower heads (one colour for this age) beside them. Children pick and drop flowers into the water as families arrive — no pattern pressure, just placing and watching. Safety: shallow water (2–3 cm), towels underneath; wipe hands before moving on.',
+            whatToSay: ['Flower.', 'Drop.', 'Float.', 'More.'],
+          },
+          {
+            name: 'Circle Time (8–15 min)',
+            description: 'Name tags, a quick intro and housekeeping, then sing both garba songs with ribbons and shakers. Frame the day: today we paint a photo frame, make a yummy snack, and dance garba together! (Songs: "Come here, my dear, Navratri aayi" to the tune of Come Here My Dear Krishna Kanhaiya, and "Navratri aayi Navratri aayi" to the tune of Diwali Aayee.)',
+            whatToSay: ['Hello!', 'Shake it!', 'Navratri aayi!'],
+          },
+          {
+            name: 'Navratri Photo Frame (15–30 min)',
+            description: 'Each child gets a pre-made craft-stick diamond frame. Two steps: paint the sticks with a wide brush (one or two bright colours), then press on mirrors, bindi stickers, foam dots and sequins. Set aside to dry; educators write the child\'s name on the back. Safety: washable paint, aprons on; all stickers and mirrors are large and flat-backed — supervise mouthing; frames are pre-made by adults, no loose sticks for children.',
+            setup: ['Pre-made craft-stick diamond frames (one per child) — sticks glued into a diamond, coloured paper behind, a bead string and yarn tassel attached', 'Wide brushes and washable paint', 'Flat-backed craft mirrors, bindi stickers, foam dots, sequins', 'One finished sample on display; a drying rack'],
+            whatToSay: ['Paint.', 'Stick.', 'Shiny!', 'Press.', 'Your frame.'],
+            goal: 'Explore colour and simple decorating, and take home a keepsake',
+            ifNotReady: 'Parent holds the frame steady; child presses stickers on.',
+            ifReadyForMore: 'Paint carefully, choose colour combinations, place mirrors in a pattern.',
+          },
+          {
+            name: 'Navratri Snack Bowl (30–40 min)',
+            description: 'Each child or pair gets a small bowl. Serving bowls of thick poha flakes, desiccated coconut and powdered jaggery in the centre. Children scoop poha into their bowl, sprinkle coconut and jaggery on top, mix with hands or a spoon, and eat together. Add a tiny pinch of cardamom for the smell. Safety: check allergies beforehand (coconut); thick poha flakes are soft — no choke risk; wash hands before and after; seated while eating; wipes ready.',
+            whatToSay: ['Scoop.', 'Sprinkle.', 'Mix.', 'Yummy.', 'More?'],
+          },
+          {
+            name: 'Family Garba Party (40–55 min)',
+            description: 'Everyone dressed in festive clothes. Ribbons and shakers handed out, garba playlist on, volume up. Educators lead simple moves — clap-clap, walk-walk, turn. Parents and children dance together. No dandiya sticks for this age — ribbons only. Let children come and go as they please; keep the energy up, repeat songs, encourage everyone. Safety: clear the room of all craft materials, paint and drying frames before starting; ribbons not around necks; shoes off.',
+            whatToSay: ['Dance!', 'Clap.', 'Turn.', 'Everybody!', 'Navratri!'],
+          },
+          {
+            name: 'Goodbye (55–60 min)',
+            description: 'Thank-you, goodbye song, photos in festive clothes. Each child takes their painted photo frame (check it\'s dry — if not, an educator wraps it carefully). Takeaway: a painted and decorated Navratri photo frame.',
+          },
+        ],
+        materials: [
+          'Fresh flowers (marigolds, roses), 2–3 shallow urlis, baskets',
+          'Craft sticks, coloured paper, yarn, small beads, strong glue (adult use, for pre-making the frames)',
+          'Washable paint, wide brushes, flat-backed craft mirrors, bindi stickers, foam dots, sequins',
+          'Thick poha flakes, desiccated coconut, powdered jaggery, cardamom powder, small bowls, spoons',
+          'Ribbons (one per child), baby shakers',
+          'Garba playlist + speaker, name tags, aprons, wipes, drying rack',
+        ],
+      },
+      {
+        band: '3-5',
+        label: 'ages 3–5',
+        overview: 'Navratri Playdate · ages 3–5 (1 hour). Art, make, eat, dance. Make a rangoli with coloured powder, fold a dancing fan doll, top a chickpea sundal snack, decorate your own dandiya, then dress up and dance garba with them.',
+        bigGoals: 'art · make · eat · dance',
+        activities: [
+          {
+            name: 'Circle Time (0–8 min)',
+            description: 'Name tags, intros and housekeeping. Sing both garba songs — this age sings along and does the actions (clap high, clap low, turn). Frame the day: today we make a rangoli, a dancing doll, eat sundal, and decorate our own dandiya — then we all dance garba together!',
+            whatToSay: ['Navratri aayi!', 'Clap high, clap low.', 'Turn!'],
+          },
+          {
+            name: 'Rangoli Powder Art (8–22 min)',
+            description: 'Each child gets a printed rangoli design sheet on a tray or newspaper. Squeeze glue along the printed lines — slowly, following the design — then sprinkle coloured rangoli powder over the glue. Tap and tilt the sheet to dust off the excess. The glued lines hold the colour — a proper rangoli to keep. Safety: rangoli powder is non-toxic but dusty — do this in a well-ventilated area or outdoors; aprons on; supervise squeezing; wash hands after.',
+            setup: ['Printed rangoli design sheets (simple, clear lines) — one per child', 'Squeeze glue bottles (one per child or pair)', 'Coloured rangoli powder (red, yellow, green, orange, pink), shallow trays or newspaper', '⚠ Dry-run the glue + powder before the session — the glue must squeeze a clean, visible line and the powder must stick and dust off cleanly'],
+            whatToSay: ['Squeeze along the line.', 'Sprinkle.', 'Tap it off.', 'Look — your rangoli!'],
+            goal: 'Follow a line with a tool and make a rangoli to keep',
+            ifNotReady: 'Educator traces some glue lines, child sprinkles the powder.',
+            ifReadyForMore: 'Use multiple colours in different sections, fill some areas solid.',
+          },
+          {
+            name: 'Make Your Own Fan Doll (22–35 min)',
+            description: 'Each child gets pre-cut coloured paper strips. Accordion-fold the strips into a pleated fan (the skirt). Fan out into a half-circle. Glue a pre-cut card circle head on top. Add pipe-cleaner arms. Decorate with craft mirrors, bindi stickers, foam dots and googly eyes. Draw a face. Safety: craft mirrors flat-backed (no sharp edges); adult handles the stapler; bindi stickers large size; supervise googly eyes with persistent mouthers.',
+            setup: ['Pre-cut coloured paper strips (fan skirts)', 'Pre-cut card circle heads, pipe cleaners', 'Flat-backed craft mirrors, bindi stickers, foam dots, googly eyes, glue sticks', 'A pre-folded sample fan doll on display; stapler (adult use)'],
+            whatToSay: ['Fold — back and forth.', 'Fan it out.', 'Stick her face on.', 'Give her mirrors.', 'She\'s dancing!'],
+            goal: 'Fold and assemble a figure, and make individual choices',
+            ifNotReady: 'Educator pre-folds the skirt — child assembles and decorates only.',
+            ifReadyForMore: 'Fold their own skirt, choose colour combos, add a dupatta from a scrap of fabric.',
+          },
+          {
+            name: 'Navratri Snack Bowl (35–43 min)',
+            description: 'Each child gets a small bowl of pre-boiled seasoned chickpea sundal. Serving bowls of grated coconut, fresh coriander and halved lemons in the centre. Children top their sundal — sprinkle coconut, add coriander, squeeze lemon. Mix and eat together. Safety: check allergies beforehand; an adult squeezes the lemon for younger 3s if needed; wash hands before and after; seated while eating; wipes ready.',
+            setup: ['Pre-boiled seasoned chickpea sundal (tempered with mustard, curry leaves, salt — done before the session, served room temperature)', 'Grated coconut, fresh coriander, halved lemons, small bowls, spoons'],
+            whatToSay: ['Sprinkle coconut.', 'Squeeze the lemon.', 'Mix it up.', 'How\'s your sundal?'],
+          },
+          {
+            name: 'Decorate, Dress Up & Dance! (43–57 min)',
+            description: 'Make dandiya (8 min): two dowels or cardboard tubes per child — wrap with coloured tape, tie on ribbons, stick pom-poms and stickers. Then dance (6 min): clear the room, everyone in festive clothes, playlist on. Educators lead basic dandiya choreography — tap sticks together, walk in a circle, turn, tap again. Parents and children dance together. Keep it joyful — the choreography is a guide, not a test. Close with a big "Navratri aayi!" and hands together. Safety: sand rough dowel edges beforehand (cardboard tubes safer if in doubt); dandiya with parents only at this age; tap sticks together, not at faces; clear all craft materials, rangoli powder and food before dancing.',
+            setup: ['Wooden dowels or thick cardboard tubes (two per child, ~30 cm)', 'Coloured tape, ribbon, pom-poms, stickers', 'Garba playlist + speaker; festive clothes'],
+            whatToSay: ['Wrap it.', 'Stick it.', 'Ready to dance?', 'Tap-tap!', 'Walk.', 'Turn.', 'Louder!', 'Everybody!'],
+            ifNotReady: 'Educator wraps the base layer — child adds ribbon and stickers.',
+            ifReadyForMore: 'Wrap the full stick, create a colour pattern, match the pair.',
+          },
+          {
+            name: 'Goodbye (57–60 min)',
+            description: 'Thank-you, goodbye song, photos in festive clothes with dandiya. Each child takes home their dandiya pair, fan doll and rangoli powder art. Takeaway: decorated dandiya sticks, a fan doll, and a rangoli powder-art sheet.',
+          },
+        ],
+        materials: [
+          'Printed rangoli design sheets (one per child), squeeze glue bottles, coloured rangoli powder (assorted), shallow trays or newspaper',
+          'Coloured paper strips (fan skirts), pre-cut card circle heads, pipe cleaners, flat-backed mirrors, bindi stickers, foam dots, googly eyes, glue sticks',
+          'Pre-boiled seasoned chickpeas, grated coconut, fresh coriander, lemons, small bowls, spoons',
+          'Wooden dowels or thick cardboard tubes (two per child, ~30 cm), coloured tape, ribbon, pom-poms, stickers',
+          'Name tags, aprons, wipes, drying rack, child-safe scissors, stapler (adult use), garba playlist + speaker',
+        ],
+      },
+    ],
+  },
+  'Halloween Special': {
+    overview: 'Halloween Carnival Playdate — spooky, silly and full of surprises. Four themed zones (Monster Mess, Ghost Alley, Witch\'s Den, Pumpkin Patch) with hands-on stations, a photo booth and a costume parade to finish. Use the age toggle for the ages 1–3, 3–5 and 5–8 versions. Come dressed up!',
+    activities: [],
+    materials: [],
+    ageBands: [
+      {
+        band: '1-3',
+        label: 'ages 1–3',
+        overview: 'Halloween Carnival · ages 1–3 (parent-paired, 1 hour). Monsters, ghosts and witches across four zones with 2–3 stations each. Families rotate freely after circle time; stations are self-paced, no-reset or quick-reset. A costume parade and photo booth to finish.',
+        bigGoals: 'sensory · games · movement',
+        activities: [
+          {
+            name: 'Entry & Settle (0–8 min)',
+            description: 'Spooky-fun music at the door. Check names, hand out name tags. Families take a photo at the Halloween photo booth and explore while others arrive. Two self-guided entry activities (instruction board at each): Pin the Black Cat (a black-cat poster, a velcro tail to pin, a scarf for blindfolding) and Mystery Box (a covered box with a hand-hole — reach in and feel shredded paper, felt shreds, newspaper balls, dried leaves).',
+            setup: ['Spooky-fun background playlist (Happy Halloween Background Instrumental)', 'Halloween photo-booth backdrop (streamers + chart paper)', 'Pin the Black Cat: black-cat poster, velcro tail, scarf', 'Mystery Box: covered box with a hand-hole, filled with shredded paper, felt shreds, newspaper balls, dried leaves'],
+          },
+          {
+            name: 'Circle Time (8–15 min)',
+            description: 'Welcome, intros and housekeeping. Songs: a hello song, "There\'s A Spider On The Floor" (The Kiboomers) and "Halloween Freeze Dance" (The Kiboomers). Frame: four spooky zones today — monsters, ghosts, witches and pumpkins! Go to any zone you like, then a costume parade at the end.',
+            setup: ['Speaker, projector, floor cushions'],
+            whatToSay: ['Welcome to the Halloween Carnival!', 'Four zones — go anywhere!', 'Costume parade at the end!'],
+          },
+          {
+            name: 'Monster Mess · Monster Roll & Paint',
+            description: 'Drop balls into a shallow tray of washable paint. Roll them around by tilting the tray. Lift the paper out to see the pattern. Replace the paper for the next child. (Zone music: This Is Halloween.) Safety: washable paint, aprons on.',
+            setup: ['Soft baby balls, plastic plates as paint trays, aprons', 'Washable paint', 'Large paper sheets (chart paper cut to tray size)'],
+            whatToSay: ['Drop.', 'Roll.', 'Tilt.', 'Look!'],
+            ifNotReady: 'Parent tilts, child watches the roll.',
+            ifReadyForMore: 'Try two colours, roll in different directions.',
+          },
+          {
+            name: 'Monster Mess · Feed the Monster',
+            description: 'Children throw scrunched newspaper balls through a monster\'s mouth (a cardboard box painted with a monster face and a mouth hole). A bucket behind catches everything — tip back into the basket for the next child. Safety: mouth hole large enough that no child tries to climb through.',
+            setup: ['Cardboard box painted with a monster face and a mouth hole; a bucket behind to catch items', 'Scrunched newspaper balls; marker, paint'],
+            whatToSay: ['Feed.', 'Throw.', 'In!', 'More.'],
+          },
+          {
+            name: 'Monster Mess · Monster Slime Squish',
+            description: 'Children squish, press and push the googly eyes around inside a sealed ziplock bag (cornflour + water + food colouring + googly eyes, taped shut on all four edges). Continuous — wipe the bag and hand to the next child. Safety: test every bag\'s seal before the session; if a bag leaks, remove it immediately.',
+            setup: ['Ziplock bags, cornflour, food colouring, googly eyes, strong tape', 'Pre-make the bags and tape all four edges shut'],
+            whatToSay: ['Squish.', 'Push.', 'Find the eyes.'],
+          },
+          {
+            name: 'Ghost Alley · Ghost Cup Towers',
+            description: 'Draw ghost faces on white cups. Children stack, build towers, knock them down, stack again. Self-resetting — multiple children at once. (Zone music: The Pink Panther Theme.)',
+            setup: ['White paper cups', 'Black marker'],
+            whatToSay: ['Stack.', 'Tall!', 'Knock!', 'Again.'],
+          },
+          {
+            name: 'Ghost Alley · Sticky Spiderweb',
+            description: 'Stretch wide tape sticky-side-out across a hula hoop. Children throw soft balls and newspaper balls — they stick to the web. Peel off, throw again. Continuous.',
+            setup: ['Small hula hoop, soft baby balls', 'Wide packing tape, scrunched newspaper balls'],
+            whatToSay: ['Throw.', 'Stuck!', 'Peel.', 'Again.'],
+          },
+          {
+            name: 'Ghost Alley · Wrap the Mummy',
+            description: 'A cardboard mummy cutout with googly eyes, propped against a wall or on a table. Children wind white crepe streamers around it. Unwind for the next child or have several cutouts. Safety: streamers not around children\'s necks; demonstrate wrapping on the cutout only, not on people.',
+            setup: ['White crepe streamers, googly eyes', 'Cardboard mummy cutouts with googly eyes glued on'],
+            whatToSay: ['Wrap.', 'Round and round.', 'Mummy!'],
+          },
+          {
+            name: 'Witch\'s Den · Witch Hat Ring Toss',
+            description: 'Children toss rings onto cone witch hats. Pick up rings, next child goes. Continuous. (Zone music: Witches\' Brew — Hap Palmer.)',
+            setup: ['Ring-tossing rings (already in inventory)', 'Black chart paper rolled into cone witch hats'],
+            whatToSay: ['Toss.', 'On the hat!', 'Try again.'],
+          },
+          {
+            name: 'Witch\'s Den · Pumpkin Patch Dig',
+            description: 'Children dig through shredded crepe paper to find hidden wooden blocks and ping-pong-ball ghosts. Drop finds into a sorting bowl. Toss everything back in and shake the tray — resets itself.',
+            setup: ['Wooden blocks, measuring cups/scoops, a tray, bowls, black marker', 'Orange and black crepe paper (shredded), ping-pong balls drawn with ghost faces'],
+            whatToSay: ['Dig.', 'Find.', 'What is it?', 'More.'],
+          },
+          {
+            name: 'Witch\'s Den · Build a Spider',
+            description: 'Each child gets a pipe-cleaner spider with eight legs and a yarn-ball body. A pattern card shows which coloured beads go on each leg. Children thread beads onto the legs to match the pattern. One spider per child — take home. Safety: beads large (no choke risk); supervise mouthing; fold sharp pipe-cleaner ends inward.',
+            setup: ['Pipe cleaners, large coloured beads', 'Yarn wound into small balls for spider bodies; hand-drawn pattern cards'],
+            whatToSay: ['Thread.', 'Match.', 'Next leg.', 'Your spider.'],
+          },
+          {
+            name: 'Pumpkin Patch · Playdough Pumpkins',
+            description: 'Children squish, poke, roll and build orange pumpkin faces with googly eyes and pipe-cleaner stems. Continuous — multiple children at once. Safety: playdough non-toxic but supervise mouthing; fold pipe-cleaner ends.',
+            setup: ['Clay tools, cookie cutters, craft sticks', 'Googly eyes, green pipe cleaners', 'Homemade playdough — 1 cup flour, ½ cup salt, 1 tbsp oil, orange food colouring, water'],
+            whatToSay: ['Squish.', 'Poke.', 'Eyes.', 'Pumpkin!'],
+          },
+          {
+            name: 'Costume Parade (48–55 min)',
+            description: 'Gather everyone. Children walk a mini runway in their costumes. Educators announce fun titles — "Cutie Witch", "Captain Boo", "Tiniest Monster". Every child gets a title. Photos along the runway. Keep it joyful — no competition, just celebration.',
+          },
+          {
+            name: 'Goodbye (55–60 min)',
+            description: 'Thank-you, quick goodbye. Families fill a pumpkin sticky note on the feedback board on the way out. Takeaway: a bead-match spider and a monster roll & paint sheet.',
+          },
+        ],
+        materials: [
+          'To buy: white paper cups, ziplock bags, cornflour, food colouring (orange, green), googly eyes (bulk), pipe cleaners (bulk), large coloured beads (bulk), orange & black crepe paper, ping-pong balls, white crepe streamers, wide packing tape, black chart paper, washable paint',
+          'Already at centre: ring-tossing rings, hula hoops, soft balls, paint brushes, plastic plates & bowls, cookie cutters, clay tools, craft sticks, measuring cups, scoops, wooden blocks, floor cushions, speaker, projector, marker, tape, scissors, aprons',
+          'DIY: monster face box, mummy cutouts, photo-booth backdrop, feedback board, scrunched newspaper balls, mystery box, black-cat poster, yarn spider bodies, homemade orange playdough',
+        ],
+      },
+      {
+        band: '3-5',
+        label: 'ages 3–5',
+        overview: 'Halloween Carnival · ages 3–5 (1 hour). Four themed zones, free rotation, all stations self-paced. Build monsters, bowl down ghosts, give a witch a wild haircut, and make a full jack-o-lantern. A costume parade to finish.',
+        bigGoals: 'games · craft · movement',
+        activities: [
+          {
+            name: 'Entry & Settle (0–8 min)',
+            description: 'Spooky-fun music at the door. Check names, hand out name tags, photo at the Halloween photo booth. Two self-guided entry activities (instruction board at each): Pin the Black Cat and Mystery Box (reach in and feel the textures).',
+            setup: ['Spooky-fun playlist, photo-booth backdrop', 'Pin the Black Cat: poster, velcro tail, scarf', 'Mystery Box: covered box with a hand-hole and mixed textures inside'],
+          },
+          {
+            name: 'Circle Time (8–15 min)',
+            description: 'Welcome, intros, housekeeping. For this age: read a short spooky story (cast on the projector where available). Frame: four zones, ten activities — monsters, ghosts, witches and pumpkins. Go wherever you like, in any order! Costume parade at the end.',
+            setup: ['Speaker, projector, floor cushions'],
+            whatToSay: ['Visit any zone, any order!', 'Try everything!', 'Costume parade on the runway at the end!'],
+          },
+          {
+            name: 'Monster Mess · Monster Roll & Paint',
+            description: 'Drop balls into paint, roll by tilting the tray, pull out the paper. This age tilts independently and can layer colours. Safety: washable paint, aprons on.',
+            setup: ['Soft baby balls, plastic plates as trays, aprons, washable paint, chart paper cut to size'],
+            whatToSay: ['Roll.', 'Tilt.', 'What pattern do you see?'],
+          },
+          {
+            name: 'Monster Mess · Feed the Monster',
+            description: 'Same monster box but with a smaller mouth hole, and children throw from behind a taped line on the floor — harder aim, more satisfying. Safety: mouth hole large enough that no child tries to climb through.',
+            setup: ['Cardboard box with a monster face and a smaller mouth hole; bucket behind; scrunched newspaper balls; a taped throw line'],
+            whatToSay: ['Stand behind the line.', 'Aim.', 'In!'],
+          },
+          {
+            name: 'Monster Mess · Build a Monster Face',
+            description: 'A large blank board with velcro patches, and a basket of pre-cut felt or card monster features (eyes, mouths, noses, horns, teeth, ears — all shapes and sizes) with velcro backing. Children design the silliest or scariest face they can. Peel off, next child starts fresh — instant reset. Safety: all features palm-size or larger — no tiny loose parts.',
+            setup: ['Velcro dots', 'Large blank board or thick card with velcro patches', 'Pre-cut felt/card monster features with velcro backing'],
+            whatToSay: ['What kind of monster?', 'More eyes?', 'Scarier!', 'Sillier!'],
+          },
+          {
+            name: 'Ghost Alley · Ghost Bowling',
+            description: 'Draw ghost faces on white cups and arrange them in a bowling-pin triangle. Children roll a ball to knock them down, count the knockdowns, then stand them back up — resets in seconds.',
+            setup: ['Soft baby balls, black marker', 'White paper cups'],
+            whatToSay: ['Roll.', 'How many?', 'Strike!', 'Set them up again.'],
+          },
+          {
+            name: 'Ghost Alley · Sticky Spiderweb',
+            description: 'Tape stretched sticky-side-out across a hula hoop, with a taped throw line. Children throw and count how many stick. A small scorecard or whiteboard at the station.',
+            setup: ['Small hula hoop, soft balls, tape', 'Wide packing tape, scrunched newspaper balls, a taped throw line'],
+            whatToSay: ['From behind the line.', 'How many stuck?', 'Beat your score.'],
+          },
+          {
+            name: 'Ghost Alley · Wrap the Mummy',
+            description: 'Same mummy cutout, but children do it independently — no parent help. Wind streamers around the full mummy. Unwind for the next child or use several cutouts. Safety: streamers not around necks; demonstrate on the cutout only.',
+            setup: ['White crepe streamers, googly eyes', 'Cardboard mummy cutouts with googly eyes glued on'],
+            whatToSay: ['All the way around.', 'Cover the whole thing.', 'Mummy!'],
+          },
+          {
+            name: 'Witch\'s Den · Witch Hat Ring Toss',
+            description: 'Same game but with the hats placed further apart — more challenge, more satisfying.',
+            setup: ['Ring-tossing rings (in inventory)', 'Black chart-paper cone witch hats, placed further apart'],
+            whatToSay: ['Aim.', 'On the hat!', 'Try the far one.'],
+          },
+          {
+            name: 'Witch\'s Den · Witch Haircut',
+            description: 'Each child gets a pre-made paper witch face with long paper-strip hair. Using child-safe scissors, they cut and style — snip, trim, fringe, however they like. Own sheet each, no reset needed. Safety: scissors are child-safe with rounded tips.',
+            setup: ['Child-safe scissors', 'Pre-made paper witch faces with long paper-strip hair (one per child)'],
+            whatToSay: ['Short hair? Long hair? Spiky?', 'Snip!', 'What a look.'],
+          },
+          {
+            name: 'Witch\'s Den · Build a Spider',
+            description: 'Same as 1–3 but with a more complex pattern card. Children thread beads onto all eight pipe-cleaner legs, attach a yarn-ball body, and take it home. Safety: beads large enough for this age; fold pipe-cleaner ends.',
+            setup: ['Pipe cleaners, large coloured beads', 'Yarn-ball spider bodies; hand-drawn pattern cards (full eight legs, more colours, deliberate sequencing)'],
+            whatToSay: ['Match the pattern.', 'Which colour next?', 'All eight legs.', 'Your spider.'],
+          },
+          {
+            name: 'Pumpkin Patch · Jack-o-Lantern Workshop',
+            description: 'This age makes full jack-o-lantern faces with detail — carved-out mouths, eyebrows, teeth — using clay tools and cookie cutters. Continuous — multiple children at once. Safety: non-toxic playdough; fold pipe-cleaner ends.',
+            setup: ['Clay tools, cookie cutters, craft sticks', 'Googly eyes, green pipe cleaners', 'Homemade orange playdough (1 cup flour, ½ cup salt, 1 tbsp oil, orange food colouring, water)'],
+            whatToSay: ['What face is your pumpkin making?', 'Scary or silly?', 'Add some teeth.'],
+          },
+          {
+            name: 'Costume Parade (48–55 min)',
+            description: 'Children walk a mini runway in their costumes. Educators announce fun titles — "Cutie Witch", "Captain Boo", "Tiniest Monster". Every child gets a title. Photos along the runway. Joyful, no competition.',
+          },
+          {
+            name: 'Goodbye (55–60 min)',
+            description: 'Thank-you, quick goodbye, pumpkin sticky note on the feedback board. Takeaway: a bead-match spider, a witch-haircut craft, and a monster roll & paint sheet.',
+          },
+        ],
+        materials: [
+          'To buy: white paper cups, washable paint, googly eyes (bulk), pipe cleaners (bulk, reusable), large coloured beads (bulk, reusable), white crepe streamers, wide packing tape, black chart paper, velcro dots, orange food colouring',
+          'Already at centre: ring-tossing rings, hula hoops, soft balls, paint brushes, plastic plates & bowls, cookie cutters, clay tools, craft sticks, child-safe scissors, floor cushions, speaker, projector, marker, tape, aprons',
+          'DIY: monster face box (smaller mouth), monster-face board with velcro features, mummy cutouts, witch-hat cones, paper witch faces with paper-strip hair, photo-booth backdrop, feedback board, scrunched newspaper balls, mystery box, black-cat poster, spider pattern cards, yarn spider bodies, homemade orange playdough',
+        ],
+      },
+      {
+        band: '5-8',
+        label: 'ages 5–8',
+        overview: 'Halloween Carnival · ages 5–8 (1 hour). A proper carnival — four themed zones with scorecards and leaderboards. Build monsters, bowl down ghosts, bottle your own potion and race the clock, then a costume parade. Come dressed up!',
+        bigGoals: 'games · craft · challenge',
+        activities: [
+          {
+            name: 'Entry & Settle (0–8 min)',
+            description: 'Spooky-fun music at the door. Check names, name tags, photo at the Halloween photo booth. Two self-guided entry activities: Pin the Black Cat and Mystery Box.',
+            setup: ['Spooky-fun playlist, photo-booth backdrop', 'Pin the Black Cat: poster, velcro tail, scarf', 'Mystery Box: covered box with a hand-hole and mixed textures'],
+          },
+          {
+            name: 'Circle Time (8–15 min)',
+            description: 'Welcome, intros, housekeeping. For this age: read a spooky story (cast on the projector). Frame: four zones, ten activities — some stations have scoreboards, try to top them. Costume parade at the end — and if you build a costume piece in Monster Mess, you can wear it on the runway!',
+            setup: ['Speaker, projector, floor cushions'],
+            whatToSay: ['Visit any zone, any order.', 'Some stations have leaderboards — get your name to the top!', 'Costume parade on the runway at the end!'],
+          },
+          {
+            name: 'Monster Mess · Spray & Sparkle Monsters',
+            description: 'Each child gets a large monster outline. Stick colourful tissue paper all over it, then spray with coloured water — the tissue bleeds and blends. Add liquid glitter. One sheet per child, no reset needed. Safety: spray bottles hold coloured water only (non-toxic); liquid glitter non-toxic; aprons on.',
+            setup: ['Spray bottles, aprons', 'Liquid glitter, washable paint', 'Pre-drawn large monster outlines on chart paper; spray bottles filled with diluted coloured water; tissue paper cut into pieces'],
+            whatToSay: ['Stick, spray, sparkle.', 'Layer the colours.', 'More glitter?'],
+          },
+          {
+            name: 'Monster Mess · Build a Monster Face',
+            description: 'Same velcro board as 3–5 but with a bigger, weirder selection of features (antennae, bolts, scars, fangs, multiple eye shapes, asymmetric parts). Challenge: build the scariest, then the silliest. Peel off, instant reset.',
+            setup: ['Velcro dots', 'Large blank board with velcro patches; pre-cut felt/card features — bigger, weirder set, all with velcro backing'],
+            whatToSay: ['Make it terrifying.', 'Now make it ridiculous.', 'More eyes.'],
+          },
+          {
+            name: 'Monster Mess · Make a Monster Costume Piece',
+            description: 'Children design and make one wearable thing — claws, a horn headband, a tail, monster ears, fangs on a string. They wear it in the costume parade. Sample pieces on display. Safety: stapler adult-operated only; elastic not tight around the neck — headband or wrist only.',
+            setup: ['Scissors, tape', 'Elastic, coloured tape', 'Card, pipe cleaners; a stapler at the station (adult-operated); sample pieces on display (a claw, a horn headband, a tail)'],
+            whatToSay: ['What monster part are you making?', 'Wear it in the parade.'],
+          },
+          {
+            name: 'Ghost Alley · Ghost Bowling',
+            description: 'Same as 3–5 but with more cups in a wider triangle and a further throw line. A scorecard at the station — children write their name and knockdown count.',
+            setup: ['Soft baby balls, black marker, tape', 'White paper cups; a scorecard'],
+            whatToSay: ['How many this time?', 'Write your score.', 'Can you beat it?'],
+          },
+          {
+            name: 'Ghost Alley · Ghost Tower Challenge',
+            description: 'Draw ghost faces on cups. A 60-second sand timer at the station. Build the tallest ghost-cup tower before the timer runs out, then write your name and tower height (in cups) on the leaderboard. Competitive, self-paced, self-resetting.',
+            setup: ['White paper cups, a 60-second sand timer', 'A small whiteboard or paper sheet for the leaderboard'],
+            whatToSay: ['Ready? Flip the timer.', 'How tall?', 'Put your name on the board.'],
+          },
+          {
+            name: 'Ghost Alley · Life-Size Mummy Wrap',
+            description: 'A large life-size cardboard mummy cutout with googly eyes, mounted securely on the wall. Children wrap it head to toe with crepe streamers — bigger scale, more wrapping. Unwrap for the next child or use multiple cutouts. Safety: streamers not around necks; the mummy is mounted securely so it won\'t fall.',
+            setup: ['White crepe streamers, googly eyes', 'Large life-size cardboard mummy cutout with googly eyes, mounted securely on the wall'],
+            whatToSay: ['Head to toe.', 'Cover everything.', 'Full mummy.'],
+          },
+          {
+            name: 'Witch\'s Den · Witch Hat Ring Toss',
+            description: 'Cone witch hats with the smallest rings at the furthest distances. Scoring: closer hat = 1 point, middle = 3, farthest = 5. A scorecard at the station.',
+            setup: ['Ring-tossing rings (in inventory)', 'Black chart-paper cone witch hats; a scorecard'],
+            whatToSay: ['Go for the far one.', 'What\'s your total?', 'Write it up.'],
+          },
+          {
+            name: 'Witch\'s Den · Mystery Potion Bottle',
+            description: 'Each child gets a recipe card and follows it to layer dry ingredients into a small bottle using funnels and spoons (e.g. "Layer 1: two spoons of red rice. Layer 2: one spoon of green sand…"). Cap it — take home. No liquids, no spills, no reset needed. Safety: all ingredients are dry, non-toxic, non-edible craft materials; funnels keep it tidy.',
+            setup: ['Funnels (three sizes in inventory), measuring spoons', 'Small bottles or jars with caps, coloured rice, coloured sand, glitter powder', 'Hand-written recipe cards (4–5 steps each); pre-fill and label the ingredient containers'],
+            whatToSay: ['Follow the recipe.', 'Which ingredient next?', 'Cap it — your potion.'],
+          },
+          {
+            name: 'Witch\'s Den · Witch Haircut',
+            description: 'Pre-made paper witch faces with long paper-strip hair. This age gets full creative control — curling strips around pencils, layering, fringing. No limit on how wild. Safety: child-safe scissors with rounded tips.',
+            setup: ['Child-safe scissors', 'Pre-made paper witch faces with long paper-strip hair (one per child)'],
+            whatToSay: ['Mohawk? Bangs? Bald?', 'Go wild.'],
+          },
+          {
+            name: 'Pumpkin Patch · Pumpkin vs Ghost Tic-Tac-Toe',
+            description: 'Smooth flat stones painted orange (pumpkins) and white (ghosts) with faces, and a tic-tac-toe grid taped on the floor or a large card. Children challenge each other. Clear the board, next pair plays. Self-resetting. Safety: stones large and smooth — no sharp edges.',
+            setup: ['Tape', 'Smooth flat stones painted orange (pumpkins) and white (ghosts) with faces; a tic-tac-toe grid taped on the floor or large card'],
+            whatToSay: ['Pumpkins or ghosts?', 'Your move.', 'Play again?'],
+          },
+          {
+            name: 'Costume Parade (48–55 min)',
+            description: 'Children walk a mini runway in their costumes — children wearing a costume piece they made in Monster Mess get a special shout-out. Educators announce fun titles — "Cutie Witch", "Captain Boo", "Scariest Monster". Every child gets a title. Photos along the runway.',
+          },
+          {
+            name: 'Goodbye (55–60 min)',
+            description: 'Thank-you, quick goodbye, pumpkin sticky note on the feedback board. Takeaway: a spray & sparkle monster, a mystery potion bottle, a witch-haircut craft, and a monster costume piece.',
+          },
+        ],
+        materials: [
+          'To buy: white paper cups, a 60-second sand timer, small bottles or jars with caps, coloured rice, coloured sand, glitter powder, liquid glitter, elastic, smooth flat stones (if not available), white crepe streamers, googly eyes (bulk), pipe cleaners (bulk, reusable), velcro dots, coloured tape, black chart paper, washable paint, orange food colouring',
+          'Already at centre: ring-tossing rings, hula hoops, soft balls, spray bottles, funnels (three sizes), measuring spoons, paint brushes, plastic plates & bowls, child-safe scissors, floor cushions, speaker, projector, marker, tape, aprons',
+          'DIY: monster outlines on chart paper, monster-face board with velcro features (expanded set), sample costume pieces, life-size mummy cutout, witch-hat cones, paper witch faces with paper-strip hair, recipe cards, photo-booth backdrop, feedback board, mystery box, black-cat poster, painted pumpkin & ghost stones, tic-tac-toe floor grid, leaderboard sheets, scorecards',
+        ],
+      },
+    ],
+  },
   'Little Print Makers': {
     overview: 'A hands-on print studio where marks come alive. Children sort and place colours, squeeze and spray soapy colour, press and pop bubble-wrap prints, and paint big inside a hoop — exploring how tools, textures and movement all leave their own kind of mark on paper. A first, joyful taste of making prints with the whole hand and the whole arm.',
     bigGoals: [

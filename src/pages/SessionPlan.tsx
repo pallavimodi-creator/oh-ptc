@@ -18,6 +18,7 @@ export default function SessionPlan() {
   const { profile } = useAuth();
   const [sessionImages, setSessionImages] = useState<SessionImage[]>([]);
   const [uploading, setUploading] = useState<string | null>(null);
+  const [bandIdx, setBandIdx] = useState(0);
 
   const session = Object.values(ALL_SESSIONS).flat().find((s) => s.id === id);
   const plan = session ? SESSION_PLANS[session.name] : null;
@@ -109,6 +110,14 @@ export default function SessionPlan() {
 
   const { label, color } = SESSION_TYPES[session.type];
   const isAdmin = profile?.role === 'admin';
+
+  // Multi-age plans (e.g. Navratri / Halloween) carry an `ageBands` array; the
+  // page shows a band toggle and renders the selected band's overview /
+  // activities / materials. Single-band plans fall back to the top-level plan.
+  const bands = plan.ageBands;
+  const bi = bands && bands.length ? Math.min(bandIdx, bands.length - 1) : 0;
+  const view = bands && bands.length ? bands[bi] : plan;
+  const imgPrefix = bands && bands.length ? `${bands[bi].band}-` : '';
 
   const ImageSection = ({ activityKey, label }: { activityKey: string; label: string }) => {
     const imageUrl = getImageForActivity(activityKey);
@@ -213,16 +222,35 @@ export default function SessionPlan() {
           </p>
         </div>
 
+        {/* Age-band toggle (multi-age plans only) */}
+        {bands && bands.length > 1 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-bold text-ink-muted">age group</span>
+            {bands.map((b, i) => (
+              <button
+                key={b.band}
+                onClick={() => setBandIdx(i)}
+                className={cn(
+                  'rounded-chip px-3.5 py-1.5 text-[13px] font-bold transition-colors',
+                  i === bi ? 'bg-brand-orange text-white' : 'bg-bg-subtle text-ink-muted hover:text-ink'
+                )}
+              >
+                {b.label}
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* Overview */}
         <section className="space-y-2">
           <h2 className="text-[11px] font-bold text-ink-muted">
             overview
           </h2>
-          <p className="text-[15px] leading-relaxed text-ink">{plan.overview}</p>
-          {plan.bigGoals && (
+          <p className="text-[15px] leading-relaxed text-ink">{view.overview}</p>
+          {view.bigGoals && (
             <div className="mt-2 rounded-lg bg-brand-orange/[0.07] px-3 py-2">
               <span className="text-[11px] font-bold text-ink-muted">big goals</span>
-              <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{plan.bigGoals}</p>
+              <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{view.bigGoals}</p>
             </div>
           )}
         </section>
@@ -233,7 +261,7 @@ export default function SessionPlan() {
             materials needed
           </h2>
           <ul className="space-y-1.5">
-            {plan.materials.map((material, i) => (
+            {view.materials.map((material, i) => (
               <li key={i} className="flex items-center gap-2.5 text-[14px] text-ink">
                 <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-orange" />
                 <span>{material}</span>
@@ -289,7 +317,7 @@ export default function SessionPlan() {
             activities
           </h2>
           <div className="space-y-4">
-            {plan.activities.map((activity, i) => (
+            {view.activities.map((activity, i) => (
               <div key={i} className="rounded-card border border-ink/10 bg-brand-white p-4 shadow-card">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-brand-orange text-[13px] font-extrabold text-white">
@@ -298,7 +326,7 @@ export default function SessionPlan() {
                   <h3 className="text-[15px] font-extrabold leading-tight text-ink">{activity.name.toLowerCase()}</h3>
                 </div>
 
-                <ImageSection activityKey={`activity${i + 1}`} label={activity.name} />
+                <ImageSection activityKey={`${imgPrefix}activity${i + 1}`} label={activity.name} />
 
                 <p className="my-3 text-[14px] leading-relaxed text-ink">{activity.description}</p>
 
