@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ArrowLeft, ImagePlus, Loader2 } from 'lucide-react';
 import { ALL_SESSIONS, SESSION_PLANS, SESSION_TYPES } from '@/data/sessions';
+import { localImageFor } from '@/data/sessionImages';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -43,7 +44,11 @@ export default function SessionPlan() {
   };
 
   const getImageForActivity = (activityKey: string) => {
-    return sessionImages.find(img => img.activity_key === activityKey)?.image_url;
+    // Supabase-uploaded images win; otherwise fall back to a locally-bundled reference photo.
+    return (
+      sessionImages.find(img => img.activity_key === activityKey)?.image_url ??
+      (session?.name ? localImageFor(session.name, activityKey) : undefined)
+    );
   };
 
   const handleImageUpload = async (activityKey: string, file: File) => {
@@ -362,6 +367,13 @@ export default function SessionPlan() {
                   <div className="rounded-lg bg-brand-orange/[0.07] px-3 py-2">
                     <span className="text-[11px] font-bold text-ink-muted">goal</span>
                     <p className="mt-0.5 text-[14px] font-bold text-brand-orange">{activity.goal}</p>
+                  </div>
+                  )}
+
+                  {activity.safety && (
+                  <div className="rounded-lg border border-red-300/60 bg-red-50 px-3 py-2">
+                    <span className="text-[11px] font-bold text-red-700">⚠ safety</span>
+                    <p className="mt-0.5 text-[13.5px] leading-relaxed text-ink">{activity.safety}</p>
                   </div>
                   )}
 
