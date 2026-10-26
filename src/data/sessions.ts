@@ -596,7 +596,6 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
             links: [
               { label: "ghost alley board (A4 pdf)", url: "/halloween-printables/ghost-alley-board.pdf" },
               { label: "full ghost alley kit — board, signs, tokens & collector cards (pdf)", url: "/halloween-printables/ghost-alley-kit.pdf" },
-              { label: "magic potion counting game (pdf)", url: "/halloween-printables/magic-potion-game.pdf" },
             ],
             setup: [
               "to print · the board, station signs, ghost-point tokens and collector cards (from the kit linked above)",
@@ -663,6 +662,25 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
             goal: "Imagination and storytelling.",
           },
           {
+            name: "Witch's Den — The Apprentice Wizards' Magic Potion",
+            zone: "witch's den",
+            primary: true,
+            description: "A print-&-play Halloween counting game — brew a bubbling potion by counting out the right number of spooky ingredients (spider web, eyeball, maggot, pumpkin, bone). For this age, play Level 1 (numbers 1–6).",
+            links: [
+              { label: "the apprentice wizards' magic potion — print & play (pdf)", url: "/halloween-printables/magic-potion-game.pdf" },
+            ],
+            setup: ["to print · one potion mat per child, the recipe cards for your level, and the ingredient-token sheets (print several copies; laminate for repeat play)", "to buy · a dice"],
+            steps: [
+              "Give each wizard a potion mat and spread the ingredient tokens in a tray everyone can reach.",
+              "Draw a recipe card — each one lists ingredients with a number shown on dice.",
+              "Read the dice, count the dots, and add that many of each ingredient to your potion.",
+              "Check your brew — count again and match it to the card. Your potion is ready!",
+              "Tip the ingredients back and draw a new recipe to play again.",
+            ],
+            goal: "Counting collections, one-to-one matching, and reading dice.",
+            note: "Play together (2 players): one child is the witch and reads the ingredients aloud; the other adds them to the potion, then they check the brew together against the card.",
+          },
+          {
             name: "Witch's Den — more carnival stations",
             zone: "witch's den",
             optional: true,
@@ -709,10 +727,11 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
           "mummy wrap (primary) · soft toilet-paper rolls or crepe streamers",
           "ghost optional · white paper cups, soft balls, a hula hoop + packing tape, newspaper balls, cardboard mummy cutouts + crepe streamers + googly eyes",
           "witch's wild hair (primary) · pre-cut witch hats & faces, coloured yarn, glue sticks, crayons/markers, stickers, cardstock",
+          "magic potion game (primary) · printed potion mats + recipe cards + ingredient tokens (laminated), a dice",
           "witch optional · ring-toss rings, black chart paper (witch hats), child-safe scissors, paper witch faces with paper-strip hair, pipe cleaners + beads + yarn",
           "clay pumpkins (primary) · orange & green air-dry clay, blunt clay tools, craft sticks, trays",
           "costume parade · a runway + a camera · goodbye · pumpkin sticky-notes",
-          "printables · the ghost alley board & kit and the magic potion counting game (download links in the ghost alley station)",
+          "printables · the ghost alley board & kit (ghost alley station) and the magic potion counting game (witch's den station) — download links in the app",
         ],
       },
       {
@@ -770,7 +789,6 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
             links: [
               { label: "ghost alley board (A4 pdf)", url: "/halloween-printables/ghost-alley-board.pdf" },
               { label: "full ghost alley kit — board, signs, tokens & collector cards (pdf)", url: "/halloween-printables/ghost-alley-kit.pdf" },
-              { label: "magic potion counting game (pdf)", url: "/halloween-printables/magic-potion-game.pdf" },
             ],
             setup: [
               "to print · the board, station signs, ghost-point tokens and collector cards (from the kit linked above)",
@@ -839,6 +857,25 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
             goal: "Turn-taking, following rules and spooky thinking.",
           },
           {
+            name: "Witch's Den — The Apprentice Wizards' Magic Potion",
+            zone: "witch's den",
+            primary: true,
+            description: "A print-&-play Halloween counting game — brew a bubbling potion by counting out the right number of spooky ingredients (spider web, eyeball, maggot, pumpkin, bone). For this age, play Level 2 (adds bones, counting to 10).",
+            links: [
+              { label: "the apprentice wizards' magic potion — print & play (pdf)", url: "/halloween-printables/magic-potion-game.pdf" },
+            ],
+            setup: ["to print · one potion mat per child, the Level 2 recipe cards, and the ingredient-token sheets (print several copies; laminate for repeat play)", "to buy · two dice (for numbers to 10)"],
+            steps: [
+              "Give each wizard a potion mat and spread the ingredient tokens in a tray everyone can reach.",
+              "Draw a recipe card — each one lists ingredients with a number shown on dice.",
+              "Read the two dice, count all the dots, and add that many of each ingredient to your potion.",
+              "Check your brew — count again and match it to the card. Your potion is ready!",
+              "Tip the ingredients back and draw a new recipe to play again.",
+            ],
+            goal: "Counting collections to 10, one-to-one matching, and reading dice & number words.",
+            note: "Play together (2 players): one child is the witch and reads the ingredients aloud; the other adds them to the potion, then they check the brew together against the card.",
+          },
+          {
             name: "Witch's Den — more carnival stations",
             zone: "witch's den",
             optional: true,
@@ -893,10 +930,11 @@ export const SESSION_PLANS: Record<string, SessionPlan> = {
           "mummy wrap (primary) · toilet-paper rolls, a 2-minute timer",
           "ghost optional · white paper cups, a 60-second sand timer, soft balls, a leaderboard, a life-size mummy cutout + crepe streamers + googly eyes",
           "halloween board game (primary) · a printed & laminated board, a dice & counters per group",
+          "magic potion game (primary) · printed potion mats + Level 2 recipe cards + ingredient tokens (laminated), two dice",
           "witch optional · ring-toss rings + a scorecard, black chart paper (witch hats), funnels + measuring spoons, small bottles + coloured rice/sand + glitter powder, paper witch faces with paper-strip hair, child-safe scissors",
           "clay pumpkins (primary) · white air-dry clay, modelling tools, water, orange & green paint, paintbrushes, trays",
           "costume parade · a runway + a camera · goodbye · pumpkin sticky-notes",
-          "printables · the ghost alley board & kit and the magic potion counting game (download links in the ghost alley station)",
+          "printables · the ghost alley board & kit (ghost alley station) and the magic potion counting game (witch's den station) — download links in the app",
         ],
       },
     ],
