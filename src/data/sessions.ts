@@ -243,6 +243,29 @@ export const OCTOBER_2026_SESSIONS: Session[] = [
   { id: 'oc21', date: '2026-10-31', name: 'Halloween Special', type: 'special', big: true },
 ];
 
+export const NOVEMBER_2026_SESSIONS: Session[] = [
+  { id: 'nv1', date: '2026-11-02', name: 'Glow & Shadow', type: 'art' },
+  { id: 'nv2', date: '2026-11-03', name: 'Warm & Cold Splash', type: 'sensory' },
+  { id: 'nv3', date: '2026-11-04', name: 'Penguin Waddles', type: 'movement' },
+  { id: 'nv4', date: '2026-11-05', name: 'Bugs & Bee Sounds', type: 'music' },
+  { id: 'nv5', date: '2026-11-07', name: 'Cleaning Drive', type: 'sensory' },
+  { id: 'nv6', date: '2026-11-09', name: 'Muddy & Greeny', type: 'art' },
+  { id: 'nv7', date: '2026-11-11', name: 'Welcome to the Circus', type: 'movement' },
+  { id: 'nv8', date: '2026-11-12', name: 'Messy Kitchen', type: 'sensory' },
+  { id: 'nv9', date: '2026-11-14', name: "Children's Day Carnival", type: 'special', big: true },
+  { id: 'nv10', date: '2026-11-16', name: 'Penguin Waddles', type: 'movement' },
+  { id: 'nv11', date: '2026-11-17', name: 'Bugs & Bee Sounds', type: 'music' },
+  { id: 'nv12', date: '2026-11-18', name: 'Grains Table', type: 'sensory' },
+  { id: 'nv13', date: '2026-11-19', name: 'Muddy & Greeny', type: 'art' },
+  { id: 'nv14', date: '2026-11-21', name: 'The Magic Show', type: 'special', big: true },
+  { id: 'nv15', date: '2026-11-23', name: 'Warm & Cold Splash', type: 'sensory' },
+  { id: 'nv16', date: '2026-11-24', name: 'Welcome to the Circus', type: 'movement' },
+  { id: 'nv17', date: '2026-11-25', name: 'Glow & Shadow', type: 'art' },
+  { id: 'nv18', date: '2026-11-26', name: 'Brown Bear Beats', type: 'music' },
+  { id: 'nv19', date: '2026-11-28', name: 'Muddy & Greeny', type: 'art' },
+  { id: 'nv20', date: '2026-11-30', name: 'Penguin Waddles', type: 'movement' },
+];
+
 // ─────────────────────────────────────────────────────────────────────────
 // Adding a month? Add its *_SESSIONS array, register it in BOTH maps below,
 // and append it to BASELINE_MONTHS in sessions.integrity.test.ts.
@@ -260,6 +283,7 @@ export const ALL_SESSIONS: Record<string, Session[]> = {
   'August 2026': AUGUST_2026_SESSIONS,
   'September 2026': SEPTEMBER_2026_SESSIONS,
   'October 2026': OCTOBER_2026_SESSIONS,
+  'November 2026': NOVEMBER_2026_SESSIONS,
 };
 
 export const AVAILABLE_MONTHS = [
@@ -272,6 +296,7 @@ export const AVAILABLE_MONTHS = [
   'August 2026',
   'September 2026',
   'October 2026',
+  'November 2026',
 ];
 
 export interface SessionActivity {
