@@ -8,6 +8,7 @@ import { AppLayout } from "./components/AppLayout";
 import Login from "./pages/Login";
 import Calendar from "./pages/Calendar";
 import SessionPlan from "./pages/SessionPlan";
+import ExperienceBook from "./pages/ExperienceBook";
 import Onboarding from "./pages/Onboarding";
 import AdminDashboard from "./pages/AdminDashboard";
 import Scheduler from "./pages/Scheduler";
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/session/:id" element={<SessionPlan />} />
               <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/experience-book" element={<ExperienceBook />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/scheduler" element={<Scheduler />} />
               <Route path="/trainer" element={<TrainerDashboard />} />

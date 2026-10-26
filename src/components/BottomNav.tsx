@@ -5,6 +5,7 @@ import {
   LayoutGrid,
   CalendarPlus,
   GraduationCap,
+  BookOpen,
   LogOut,
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -21,6 +22,7 @@ export function BottomNav() {
   const navItems: { to: string; icon: typeof CalendarDays; label: string }[] = [
     { to: '/calendar', icon: CalendarDays, label: 'calendar' },
     { to: '/onboarding', icon: ClipboardList, label: 'onboarding' },
+    { to: '/experience-book', icon: BookOpen, label: 'book' },
   ];
 
   if (isTrainer) {
