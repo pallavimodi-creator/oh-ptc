@@ -324,14 +324,54 @@ export default function SessionPlan() {
           <div className="space-y-4">
             {view.activities.map((activity, i) => (
               <div key={i} className="rounded-card border border-ink/10 bg-brand-white p-4 shadow-card">
-                <div className="mb-3 flex items-center gap-3">
+                <div className="mb-3 flex items-start gap-3">
                   <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-brand-orange text-[13px] font-extrabold text-white">
                     {i + 1}
                   </span>
-                  <h3 className="text-[15px] font-extrabold leading-tight text-ink">{activity.name.toLowerCase()}</h3>
+                  <div className="min-w-0 flex-1">
+                    {(activity.zone || activity.primary || activity.optional) && (
+                      <div className="mb-1 flex flex-wrap items-center gap-1.5">
+                        {activity.zone && (
+                          <span className="rounded-chip bg-bg-subtle px-2 py-0.5 text-[10px] font-bold lowercase tracking-wide text-ink-muted">
+                            {activity.zone}
+                          </span>
+                        )}
+                        {activity.primary && (
+                          <span className="rounded-chip bg-brand-orange px-2 py-0.5 text-[10px] font-extrabold lowercase tracking-wide text-white">
+                            primary station
+                          </span>
+                        )}
+                        {activity.optional && (
+                          <span className="rounded-chip bg-brand-orange/10 px-2 py-0.5 text-[10px] font-extrabold lowercase tracking-wide text-brand-orange ring-1 ring-brand-orange/30">
+                            optional station
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    <h3 className="text-[15px] font-extrabold leading-tight text-ink">{activity.name.toLowerCase()}</h3>
+                  </div>
                 </div>
 
                 <ImageSection activityKey={`${imgPrefix}activity${i + 1}`} label={activity.name} />
+
+                {activity.gallery && activity.gallery.length > 0 && (
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    {activity.gallery.map((g, j) => (
+                      <figure key={j} className="m-0">
+                        <img
+                          src={g.src}
+                          alt={g.caption}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full rounded-lg"
+                        />
+                        <figcaption className="mt-1 text-center text-[11px] leading-snug text-ink-muted">
+                          {g.caption}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                )}
 
                 <p className="my-3 text-[14px] leading-relaxed text-ink">{activity.description}</p>
 
@@ -347,6 +387,42 @@ export default function SessionPlan() {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                  )}
+
+                  {activity.steps && activity.steps.length > 0 && (
+                  <div>
+                    <span className="text-[11px] font-bold text-ink-muted">how to do it</span>
+                    <ol className="mt-1.5 space-y-1.5">
+                      {activity.steps.map((step, j) => (
+                        <li key={j} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-ink">
+                          <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-orange/10 text-[11px] font-extrabold text-brand-orange">
+                            {j + 1}
+                          </span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  )}
+
+                  {activity.links && activity.links.length > 0 && (
+                  <div>
+                    <span className="text-[11px] font-bold text-ink-muted">printables</span>
+                    <div className="mt-1.5 flex flex-col gap-1.5">
+                      {activity.links.map((link, j) => (
+                        <a
+                          key={j}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] px-3 py-2 text-[13px] font-bold text-brand-orange transition-colors hover:bg-brand-orange/10"
+                        >
+                          <span className="text-[14px]">↓</span>
+                          <span>{link.label}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                   )}
 
@@ -392,6 +468,15 @@ export default function SessionPlan() {
                         </p>
                       )}
                     </div>
+                  )}
+
+                  {activity.note && (
+                  <div className="rounded-lg bg-bg-subtle/60 px-3 py-2">
+                    <p className="text-[13px] leading-relaxed text-ink-muted">
+                      <span className="font-bold text-ink">note · </span>
+                      {activity.note}
+                    </p>
+                  </div>
                   )}
                 </div>
               </div>
