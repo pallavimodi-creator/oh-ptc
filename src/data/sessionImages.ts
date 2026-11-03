@@ -9,6 +9,14 @@ export interface LocalImageSet {
 }
 
 export const LOCAL_SESSION_IMAGES: Record<string, LocalImageSet> = {
+  "Cleaning Drive": {
+    "slug": "cleaning-drive",
+    "keys": ["freeplay", "activity1", "activity2", "activity3", "activity4"]
+  },
+  "The Magic Show": {
+    "slug": "the-magic-show",
+    "keys": ["freeplay", "activity1", "activity2", "activity3", "activity4"]
+  },
   "Navratri Special": {
     "slug": "navratri-special",
     "keys": [
