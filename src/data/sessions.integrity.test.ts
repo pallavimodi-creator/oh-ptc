@@ -39,7 +39,6 @@ const PENDING_PLANS = new Set<string>([
   "Ganesh Chaturthi Special", // plan not ready yet
   "Push it Pull It", // May session — never had a plan in either source copy
   "Rip & Stick", // May session — never had a plan in either source copy
-  "Children's Day Carnival", // November — new session, plan not ready yet
 ]);
 
 // Minimum sessions a month must have — catches an array that got emptied.

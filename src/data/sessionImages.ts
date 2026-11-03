@@ -80,6 +80,23 @@ export const LOCAL_SESSION_IMAGES: Record<string, LocalImageSet> = {
       "5-8-activity8",
       "5-8-activity9"
     ]
+  },
+  "Children's Day Carnival": {
+    "slug": "childrens-day-carnival",
+    "keys": [
+      "1-3-activity1",
+      "1-3-activity2",
+      "1-3-activity3",
+      "1-3-activity4",
+      "1-3-activity5",
+      "1-3-activity6",
+      "3-5-activity1",
+      "3-5-activity2",
+      "3-5-activity3",
+      "3-5-activity4",
+      "3-5-activity5",
+      "3-5-activity6"
+    ]
   }
 };
 
