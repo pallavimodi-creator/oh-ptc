@@ -256,7 +256,7 @@ export const NOVEMBER_2026_SESSIONS: Session[] = [
   { id: 'nv11', date: '2026-11-17', name: 'Bugs & Bee Sounds', type: 'music' },
   { id: 'nv12', date: '2026-11-18', name: 'Grains Table', type: 'sensory' },
   { id: 'nv13', date: '2026-11-19', name: 'Muddy & Greeny', type: 'art' },
-  { id: 'nv14', date: '2026-11-21', name: 'The Magic Show', type: 'special', big: true },
+  { id: 'nv14', date: '2026-11-21', name: 'The Magic Show', type: 'music' },
   { id: 'nv15', date: '2026-11-23', name: 'Warm & Cold Splash', type: 'sensory' },
   { id: 'nv16', date: '2026-11-24', name: 'Welcome to the Circus', type: 'movement' },
   { id: 'nv17', date: '2026-11-25', name: 'Glow & Shadow', type: 'art' },
